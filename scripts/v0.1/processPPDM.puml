@@ -1,0 +1,47 @@
+#diagrama UML en formato .puml
+
+@startuml
+
+start
+
+:main();
+
+partition "Process Health" {
+    :open_json_file('health_issues.json');
+    note right: `health_issues.json` contains:\n- healthCategory\n- severity\n- scoreDeduction\n- componentType\n- componentName\n- messageID\n- detailedDescription\n- responseAction
+    :convert_to_dataframe(data);
+    :process_health(df);
+
+    :save_dataframe_to_csv(df_health, 'PPDM-Dashboard-Health.csv');
+    note right: `PPDM-Dashboard-Health.csv` contains:\n- healthCategory\n- Score\n- Issues
+
+    :save_dataframe_to_csv(df_health_events, 'PPDM-Health_events.csv');
+    note right: `PPDM-Health_events.csv` contains:\n- all original columns with '\\n' replaced by '|||'
+}
+
+partition "Process Job Group Activities" {
+    :open_json_file('JobGroupActivities.json');
+    note right: `JobGroupActivities.json` contains:\n- category\n- classType\n- result.status\n- createTime\n- endTime
+    :convert_to_dataframe(data);
+    :process_job_group_activities(df);
+
+    :save_dataframe_to_csv(df_job_groups_complete, 'PPDM-Dashboard-JobGroupActivities.csv');
+    note right: `PPDM-Dashboard-JobGroupActivities.csv` contains:\n- result.status\n- Num
+}
+
+partition "Process Activities No OK" {
+    :open_json_file('activitiesNoOK.json');
+    :convert_to_dataframe(data);
+    :process_activities_no_ok(df);
+
+    :save_dataframe_to_csv(df_assets_with_errors, 'PPDM-errorAssets.csv');
+    note right: `PPDM-errorAssets.csv` contains:\n- category\n- result.status\n- result.error.code\n- protectionPolicy.name\n- asset.type\n- Count
+
+    :save_dataframe_to_csv(df_hosts_with_errors, 'PPDM-errorHosts.csv');
+    note right: `PPDM-errorHosts.csv` contains:\n- category\n- result.status\n- result.error.code\n- protectionPolicy.name\n- Count
+
+    :save_dataframe_to_csv(df_unique_errors, 'PPDM-jobErrors.csv');
+    note right: `PPDM-jobErrors.csv` contains:\n- category\n- result.status\n- protectionPolicy.name\n- result.error.code\n- host.name\n- asset.name\n- inventorySource.type\n- result.error.detailedDescription\n- result.error.reason\n- result.error.extendedReason\n- result.error.remediation
+}
+
+@enduml

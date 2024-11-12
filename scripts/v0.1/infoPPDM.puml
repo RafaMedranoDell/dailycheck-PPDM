@@ -1,0 +1,83 @@
+@startuml
+
+start
+
+:Define Constants;
+
+partition "Time Functions" {
+    :get_current_time();
+    :get_24_hours_ago();
+    note right: Returns current UTC time\nand 24 hours ago in ISO 8601 format
+}
+
+partition "Authentication" {
+    :get_tokens(username, password);
+    note right: Retrieves access and refresh tokens\nfrom the PPDM API
+}
+
+partition "Filtered Results" {
+    :get_filtered_results(url, headers, params, fields);
+    note right: Handles pagination and filters\nthe results based on specified fields
+}
+
+partition "Helper Functions" {
+    :get_value_from_nested_keys(data, keys);
+    note right: Extracts values from nested\nJSON using a list of keys
+
+    :filter_entries(entries, fields);
+    note right: Flattens and filters nested\nJSON entries based on specified fields
+}
+
+partition "Activity Retrieval" {
+    :get_activities_not_ok(access_token, today, twenty_four_hours_ago);
+    note right: Retrieves activities that are\nnot OK within the last 24 hours
+
+    :get_job_group_activities(access_token, today, twenty_four_hours_ago);
+    note right: Retrieves job group activities\nwithin the last 24 hours
+
+    :get_health_issues(access_token);
+    note right: Retrieves current system health issues
+}
+
+partition "Save Results" {
+    :save_results_to_json(filename, data);
+    note right: Saves the filtered results to a\nJSON file
+}
+
+:main;
+
+:Initialize current time and 24 hours ago time variables;
+:get_current_time();
+:get_24_hours_ago();
+
+:Obtain access and refresh tokens;
+:get_tokens(username, password);
+
+if (access_token obtained?) then (yes)
+    :Fetching activities that are not OK;
+    :get_activities_not_ok(access_token, today, twenty_four_hours_ago);
+    
+    :Save not OK activities to activitiesNoOK.json;
+    :save_results_to_json('activitiesNoOK.json', not_ok_activities);
+    note right: `activitiesNoOK.json` contains fields:\n- category\n- classType\n- result.status\n- result.error.code\n- result.error.detailedDescription\n- result.error.extendedReason\n- result.error.reason\n- result.error.remediation\n- asset.name\n- asset.type\n- host.name\n- host.type\n- inventorySource.type\n- protectionPolicy.name\n- protectionPolicy.type\n- createTime\n- endTime
+
+    :Fetching job group activities;
+    :get_job_group_activities(access_token, today, twenty_four_hours_ago);
+
+    :Save job group activities to JobGroupActivities.json;
+    :save_results_to_json('JobGroupActivities.json', job_group_activities);
+    note right: `JobGroupActivities.json` contains fields:\n- category\n- classType\n- result.status\n- createTime\n- endTime
+
+    :Fetching health issues;
+    :get_health_issues(access_token);
+
+    :Save health issues to health_issues.json;
+    :save_results_to_json('health_issues.json', health_issues);
+    note right: `health_issues.json` contains fields:\n- healthCategory\n- severity\n- scoreDeduction\n- componentType\n- componentName\n- messageID\n- detailedDescription\n- responseAction
+else (no)
+    :Print failed to obtain access token;
+endif
+
+stop
+
+@enduml

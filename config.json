@@ -1,0 +1,66 @@
+{
+    "systems": {
+        "PPDM": ["PPDM01", "PPDM02"]
+    },
+    "api_endpoints": {
+        "PPDM": {
+            "activities_not_ok": {
+                "endpoint": "/api/ppdm/activities",
+                "filters": {
+                    "filter_expression": "createTime ge \"24_hours_ago\" and createTime lt \"now\" and result.status ne \"OK\" and protectionPolicy.name ne null and result.error.code ne null"
+                },
+                "fields": [
+                    "category",
+                    "classType",
+                    "result.status",
+                    "result.error.code",
+                    "result.error.detailedDescription",
+                    "result.error.extendedReason",
+                    "result.error.reason",
+                    "result.error.remediation",
+                    "asset.name",
+                    "asset.type",
+                    "host.name",
+                    "host.type",
+                    "inventorySource.type",
+                    "protectionPolicy.name",
+                    "protectionPolicy.type",
+                    "createTime",
+                    "endTime"
+                ],
+                "output_file": "activities_not_ok.json"
+            },
+            "job_group_activities": {
+                "endpoint": "/api/ppdm/activities",
+                "filters": {
+                    "filter_expression": "createTime ge \"24_hours_ago\" and createTime lt \"now\" and classType eq \"JOB_GROUP\""
+                },
+                "fields": [
+                    "category",
+                    "classType",
+                    "result.status",
+                    "createTime",
+                    "endTime"
+                ],
+                "output_file": "job_group_activities.json"
+            },
+            "system_health_issues": {
+                "endpoint": "/api/v2/system-health-issues",
+                "headers": {
+                    "Authorization": "access_token"
+                },
+                "fields": [
+                    "healthCategory",
+                    "severity",
+                    "scoreDeduction",
+                    "componentType",
+                    "componentName",
+                    "messageID",
+                    "detailedDescription",
+                    "responseAction"
+                ],
+                "output_file": "system_health_issues.json"
+            }
+        }
+    }
+}
