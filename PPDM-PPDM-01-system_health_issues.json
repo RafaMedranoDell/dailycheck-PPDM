@@ -1,0 +1,42 @@
+[
+    {
+        "healthCategory": "CONFIGURATION",
+        "severity": "MEDIUM",
+        "scoreDeduction": 10,
+        "componentType": "DATA_MANAGER",
+        "componentName": "Data manager",
+        "messageID": "MON0021",
+        "detailedDescription": "There are no system support options configured for PowerProtect Data Manager customer support.",
+        "responseAction": "Follow the procedure in the PowerProtect Data Manager Administration and User Guide to configure one or more system support options."
+    },
+    {
+        "healthCategory": "CONFIGURATION",
+        "severity": "LOW",
+        "scoreDeduction": 2,
+        "componentType": "DATA_MANAGER",
+        "componentName": "Data manager",
+        "messageID": "MON0024",
+        "detailedDescription": "One or more of the assets discovered from the configured asset sources are not assigned to a protection policy.",
+        "responseAction": "Assign the unprotected assets to a new or existing protection policy. To view only the unprotected assets, go to Infrastructure > Assets, click the filter icon in the Protection column, and then select Unprotected."
+    },
+    {
+        "healthCategory": "DATA_PROTECTION",
+        "severity": "HIGH",
+        "scoreDeduction": 40,
+        "componentType": "DATA_MANAGER",
+        "componentName": "Data manager",
+        "messageID": "MON0033",
+        "detailedDescription": "The latest system disaster recovery backup does not meet the protection policy service level agreement requirements. There should be at least one system disaster recovery backup performed within the defined policy schedule.",
+        "responseAction": "Verify that the system disaster recovery backup is properly configured.\nIn the PowerProtect Data Manager UI:\n1) Click the Settings icon and select Disaster Recovery.\n2) Go to Configuration and select \"Enable Backup\".\nIf the issue persists, contact Dell Customer Support."
+    },
+    {
+        "healthCategory": "COMPONENTS",
+        "severity": "MEDIUM",
+        "scoreDeduction": 10,
+        "componentType": "DATA_MANAGER",
+        "componentName": "Data manager",
+        "messageID": "SYS0074",
+        "detailedDescription": "One or more NTP servers are specified in the PowerProtect Data Manager settings, but none of these servers are available for time synchronization.",
+        "responseAction": "Specify at least one valid NTP server."
+    }
+]
