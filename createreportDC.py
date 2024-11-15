@@ -21,10 +21,9 @@ def color_score(val):
         color = ''
     return color
 
-
 # Definir la funcion para colorear la celda en la columna "Num" de la fila "FAILED" en la segunda tabla
 def color_failed(row):
-    if row['result.status'] == 'FAILED' and row['Num'] != 0:
+    if row['STATUS'] == 'Failed' and row['Num'] != 0:
         return ['background-color: red'] * len(row)
     return [''] * len(row)
 
@@ -44,21 +43,30 @@ html_job_group = styled_job_group.to_html()
 html_body = f"""
 <html>
     <body>
-        <h2 style="font-family: Arial, sans-serif; color: #0044cc;">DAILYCHECK PPDM</h2>
-        <p style="font-family: Arial, sans-serif; color: #333;">Reporte Diario de Sistemas:</p>
+        <h2 style="font-family: Arial, sans-serif; color: #0044cc;">DAILYCHECK PPDM</h2>        
         
-        <!-- Insertar cada tabla como HTML -->
-        <div style="padding: 10px;">
-            {html_health}
-        </div>
-        
-        <div style="padding: 10px;">
-            {html_job_group}
+        <!-- Contenedor para los títulos y tablas -->
+        <div style="display: flex; justify-content: space-around; padding: 10px;">
+            
+            <!-- Título y primera tabla -->
+            <div style="width: 48%;">
+                <p style="font-family: Arial, sans-serif; font-weight: bold; text-decoration: underline; color: #333;">
+                    Health Status
+                </p>
+                {html_health}
+            </div>
+            
+            <!-- Título y segunda tabla -->
+            <div style="width: 48%;">
+                <p style="font-family: Arial, sans-serif; font-weight: bold; text-decoration: underline; color: #333;">
+                    Jobs | Protection - Last 24 hours
+                </p>
+                {html_job_group}
+            </div>
         </div>
     </body>
 </html>
 """
-
 
 # Guardar el HTML en un archivo temporal y abrirlo en el navegador
 with tempfile.NamedTemporaryFile('w', delete=False, suffix='.html') as f:

@@ -52,6 +52,19 @@ def process_health(df, system, instance):
     df_health['Issues'] = df_health['Issues_grouped'].fillna(df_health['Issues_base']).astype(int)
     df_health = df_health[['healthCategory', 'Score', 'Issues']]
 
+    # Renombrar la columna 'healthCategory' a 'Health'
+    df_health = df_health.rename(columns={'healthCategory': 'Health'})
+
+    # Reemplazar los valores en la columna 'CATEGORY'
+    category_mapping = {
+        'CONFIGURATION': 'Configuration',
+        'DATA_PROTECTION': 'Data Protection',
+        'PERFORMANCE': 'Performance',
+        'COMPONENTS': 'Components',
+        'CAPACITY': 'Capacity'
+    }
+    df_health['CATEGORY'] = df_health['CATEGORY'].replace(category_mapping)
+
     # Selecciona solamente las columnas necesarias y ajusta los nombres
     df_health_events = df.replace(r'\n', '|||', regex=True)
 
@@ -83,6 +96,21 @@ def process_job_group_activities(df, system, instance):
     df_job_groups_complete['Num'] = df_job_groups_complete['Num_y'].combine_first(df_job_groups_complete['Num_x']).astype(int)
     # Seleccionar solamente las columnas necesarias
     df_job_groups_complete = df_job_groups_complete[['result.status', 'Num']]
+
+    # Reemplazar los valores de 'result.status' para adecuarlo al Dashboard de PPDM
+    status_mapping = {
+        'OK': 'Successful',
+        'FAILED': 'Failed',
+        'OK_WITH_ERRORS': 'Completed with Exceptions',
+        'CANCELED': 'Canceled',
+        'SKIPPED': 'Skipped',
+        'UNKNOWN': 'Unknown'
+    }
+
+    df_job_groups_complete['result.status'] = df_job_groups_complete['result.status'].replace(status_mapping)
+
+    # Renombrar la columna 'result.status' a 'STATUS'
+    df_job_groups_complete = df_job_groups_complete.rename(columns={'result.status': 'STATUS'})
 
     save_dataframe_to_csv(df_job_groups_complete, f'{system}-{instance}-Dashboard-JobGroupActivities.csv')
 
