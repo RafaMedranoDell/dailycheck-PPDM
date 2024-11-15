@@ -1,0 +1,5 @@
+{
+    "systems": {
+        "PPDM": ["PPDM-01", "PPDM-01.demo.local"]
+    }
+}
