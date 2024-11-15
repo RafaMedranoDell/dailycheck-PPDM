@@ -4,10 +4,6 @@ import urllib3
 from datetime import datetime, timedelta
 
 #Definicion de Variables
-url_login = 'https://ppdm-01:8443/api/v2/login'
-username = 'DCOapi'
-password = 'Password123!'
-ppdm = 'ppdm-01'
 config_file = "config.json"
 
 
@@ -200,8 +196,11 @@ def main():
     config = load_config(config_file)
 
     for system, instances in config["systems"].items():
-        for instance in instances:
-
+        for instance_info in instances:
+            instance = instance_info["hostname"]
+            username = instance_info["username"]
+            password = instance_info["password"]
+            
             if system == "PPDM":
                 # Obtener token de autenticación
                 access_token, _ = get_token_PPDM(instance,username,password)

@@ -28,34 +28,6 @@
         "endTime": "2024-11-14T14:46:19.607Z"
     },
     {
-        "category": "DISASTER_RECOVERY",
-        "classType": "JOB_GROUP",
-        "result.status": "FAILED",
-        "createTime": "2024-11-14T08:28:00.464Z",
-        "endTime": "2024-11-14T08:29:19.684Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-11-14T08:45:52.806Z",
-        "endTime": "2024-11-14T08:46:19.642Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-11-14T08:45:52.220Z",
-        "endTime": "2024-11-14T08:46:19.642Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-11-14T08:46:38.799Z",
-        "endTime": "2024-11-14T08:46:49.826Z"
-    },
-    {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
@@ -1223,5 +1195,33 @@
         "result.status": "OK",
         "createTime": "2024-11-15T08:06:03.703Z",
         "endTime": "2024-11-15T08:06:19.646Z"
+    },
+    {
+        "category": "DISASTER_RECOVERY",
+        "classType": "JOB_GROUP",
+        "result.status": "FAILED",
+        "createTime": "2024-11-15T08:28:00.467Z",
+        "endTime": "2024-11-15T08:29:19.632Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-11-15T08:36:29.850Z",
+        "endTime": "2024-11-15T08:36:49.728Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-11-15T08:46:25.135Z",
+        "endTime": "2024-11-15T08:46:49.672Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-11-15T08:46:25.518Z",
+        "endTime": "2024-11-15T08:46:49.668Z"
     }
 ]
