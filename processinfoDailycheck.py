@@ -28,7 +28,7 @@ def process_health(df, system, instance):
     """Process the Health DataFrame."""
     
     # Possible health categories
-    possible_health_category = ['CAPACITY', 'PERFORMANCE', 'CONFIGURATION', 'COMPONENTS', 'DATA_PROTECTION']
+    possible_health_category = ['CONFIGURATION', 'DATA_PROTECTION', 'PERFORMANCE', 'COMPONENTS', 'CAPACITY']
 
     # Create a DataFrame with all possible 'healthCategory' set to '0'
     df_health_base = pd.DataFrame({
@@ -136,11 +136,14 @@ def main():
     with open("config.json", "r") as config_file:
         config = json.load(config_file)
     
-    for system, instances in config["systems"].items():
+    for system, instances in config["systems"].items():        
         print (f'PROCESANDO SISTEMAS "{system}"')
         print('------------------------')
+        
         for instance in instances:
-            print(f'Procesando información de : "{instance}"')
+            hostname = instance["hostname"]
+
+            print(f'Procesando información de : "{hostname}"')
             # Process Health Issues
             health_files = glob.glob(f'{system}-{instance}-system_health_issues.json')            
             for file_path in health_files:
