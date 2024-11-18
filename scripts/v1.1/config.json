@@ -1,0 +1,16 @@
+{
+    "systems": {
+        "PPDM": [
+            {
+                "hostname": "PPDM-01",
+                "username": "DCOapi",
+                "password": "Password123!"
+            },
+            {
+                "hostname": "PPDM-01.demo.local",
+                "username": "DCOapi",
+                "password": "Password123!a"
+            }
+        ]    
+    }
+}
