@@ -1,0 +1,16 @@
+{
+    "systems": {
+        "PPDM": [
+            {
+                "hostname": "PPDM-01",
+                "username": "DCOapi",
+                "encrypted_password": "gAAAAABnPFYs_jylnrWB4T2RMIX43zD75Uy8zdQ5BwQBh4xRPEoo6LVB449_S2cLvLEmyOvkXJpbSjaTitydkyW5fETyfyF9CA=="
+            },
+            {
+                "hostname": "PPDM-01.demo.local",
+                "username": "DCOapi",
+                "encrypted_password": "gAAAAABnPFYs2gq7IqUxj-zeWz1yVot3xxotqMyVCZ7bB3fOnKJRPf97p8L8hJXhQeTQB9oT59FaZcKJl20CbJQwr7ZQul1CHQ=="
+            }
+        ]
+    }
+}
