@@ -53,44 +53,8 @@ def color_failed(row):
     return [''] * len(row)
 
 
-# CSS personalizado para mejorar el estilo visual de las tablas
-table_style = """
-<style>
-    table {
-        border-collapse: collapse;
-        width: 100%;
-        font-family: Arial, sans-serif;
-        margin-bottom: 20px;
-        font-size: 11px;  /* Tamaño de fuente para toda la tabla */
-    }
-    th, td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-        font-size: 11px;  /* Tamaño de fuente para las celdas */
-    }
-    th {
-        background-color: #cccccc;
-        color: white;
-        font-weight: bold;
-    }
-    tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-    tr:hover {
-        background-color: #ddd;
-    }
-</style>
-"""
-
-
 # Crear el cuerpo HTML del correo
-html_body = f"""
-<html>
-    <head>{table_style}</head>
-    <body>
-        <h2 style="font-family: Arial, sans-serif; color: #0044cc;">DAILYCHECK PPDM</h2>
-"""
+html_body = "<html><body><h2 style='font-family: Arial, sans-serif; color: #0044cc;'>DAILYCHECK PPDM</h2>"
 
 
 # Iterar sobre los sistemas y hostnames en el archivo de configuración
