@@ -9,7 +9,7 @@
             {
                 "hostname": "PPDM-01.demo.local",
                 "username": "DCOapi",
-                "password": "Password123!a"
+                "password": "Password123!"
             }
         ]    
     }

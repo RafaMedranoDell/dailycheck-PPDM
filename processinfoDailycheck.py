@@ -22,6 +22,11 @@ def save_dataframe_to_csv(df, file_name):
     """Saves the DataFrame to a CSV file."""
     csv_path = file_name
     df.to_csv(csv_path, index=False, quoting=csv.QUOTE_ALL, escapechar='\\')
+    
+    if os.path.exists(csv_path):
+        print(f'    Archivo guardado exitosamente: {csv_path}')
+    else:
+        print(f'    Error al guardar el archivo: {csv_path}')
 
 
 def process_health(df, system, instance):
@@ -53,7 +58,7 @@ def process_health(df, system, instance):
     df_health = df_health[['healthCategory', 'Score', 'Issues']]
 
     # Renombrar la columna 'healthCategory' a 'Health'
-    df_health = df_health.rename(columns={'healthCategory': 'Health'})
+    df_health = df_health.rename(columns={'healthCategory': 'CATEGORY'})
 
     # Reemplazar los valores en la columna 'CATEGORY'
     category_mapping = {
@@ -161,7 +166,7 @@ def main():
     """Main function that coordinates all tasks."""
     
     
-    with open("config.json", "r") as config_file:
+    with open("config_encrypted.json", "r") as config_file:
         config = json.load(config_file)
     
     for system, instances in config["systems"].items():        
@@ -173,19 +178,31 @@ def main():
 
             print(f'Procesando información de : "{hostname}"')
             # Process Health Issues
-            health_files = glob.glob(f'{system}-{instance}-system_health_issues.json')            
-            for file_path in health_files:
-                process_if_not_empty(file_path, process_health, system, instance)
+            health_files = glob.glob(f'{system}-{hostname}-system_health_issues.json') 
+            if not health_files:
+                print(f'  No existe el fichero "{system}-{hostname}-system_health_issues.json"')           
+            else:
+                print(f'  {hostname}: Procesando fichero: {health_files}')
+                for file_path in health_files:
+                    process_if_not_empty(file_path, process_health, system, hostname)
             
             # Process Job Group Activities
-            job_files = glob.glob(f'{system}-{instance}-JobGroup_activities_summary.json')
-            for file_path in job_files:
-                process_if_not_empty(file_path, process_job_group_activities, system, instance)
+            job_files = glob.glob(f'{system}-{hostname}-JobGroup_activities_summary.json')
+            if not job_files:
+                print(f'  No existe el fichero "{system}-{hostname}-JobGroup_activities_summary.json"')
+            else:
+                print(f'  {hostname}: Procesando fichero: {job_files}')
+                for file_path in job_files:
+                    process_if_not_empty(file_path, process_job_group_activities, system, hostname)
             
             # Process Activities No OK
-            activities_files = glob.glob(f'{system}-{instance}-activitiesNotOK.json')            
-            for file_path in activities_files:
-                process_if_not_empty(file_path, process_activities_no_ok, system, instance)
+            activities_files = glob.glob(f'{system}-{hostname}-activitiesNotOK.json')            
+            if not activities_files:
+                print(f'  No existe el fichero "{system}-{hostname}-activitiesNotOK.json"')
+            else:
+                print(f'  {hostname}: Procesando fichero: {activities_files}')
+                for file_path in activities_files:
+                    process_if_not_empty(file_path, process_activities_no_ok, system, hostname)
             print('------------------------')
 
 

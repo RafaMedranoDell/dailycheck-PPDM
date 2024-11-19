@@ -23,7 +23,7 @@ def load_and_style_data(system, hostname):
     # Procesar archivos de "Health"
     for health_file in health_files:
         df_health = pd.read_csv(health_file)
-        styled_health = df_health.style.map(color_score, subset=['Score'])
+        styled_health = df_health.style.applymap(color_score, subset=['Score'])
         html_health += styled_health.to_html()
 
     # Procesar archivos de "Job Group Activities"
@@ -38,18 +38,18 @@ def load_and_style_data(system, hostname):
 # Definir la función para colorear las celdas en la columna "Score"
 def color_score(val):
     if val == 0:
-        return 'background-color: green'
+        return 'background-color: #b3e6b3; color: #2d6a2d'  # Verde pastel
     elif 0 > val >= -20:
-        return 'background-color: yellow'
+        return 'background-color: #fff2b3; color: #7a7a00'  # Amarillo pastel
     elif val < -20:
-        return 'background-color: red'
+        return 'background-color: #f7b3b3; color: #a10000'  # Rojo pastel
     return ''
 
 
 # Definir la función para colorear la celda en la columna "Num" de la fila "FAILED" en la segunda tabla
 def color_failed(row):
     if row['STATUS'] == 'Failed' and row['Num'] != 0:
-        return ['background-color: red'] * len(row)
+        return ['background-color: #f7b3b3; color: #a10000'] * len(row)
     return [''] * len(row)
 
 
@@ -68,6 +68,7 @@ table_style = """
         padding: 8px;
         text-align: left;
         font-size: 11px;  /* Tamaño de fuente para las celdas */
+        padding: 4px 4px;  /* Reducir el padding vertical a 4px y horizontal a 8px */
     }
     th {
         background-color: #cccccc;
@@ -89,7 +90,7 @@ html_body = f"""
 <html>
     <head>{table_style}</head>
     <body>
-        <h2 style="font-family: Arial, sans-serif; color: #0044cc;">DAILYCHECK PPDM</h2>
+        <h2 style="font-family: Arial, sans-serif; color: #0044cc;">DAILY INVESTIGATION PPDM</h2>
 """
 
 

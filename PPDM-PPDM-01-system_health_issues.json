@@ -20,6 +20,16 @@
         "responseAction": "Assign the unprotected assets to a new or existing protection policy. To view only the unprotected assets, go to Infrastructure > Assets, click the filter icon in the Protection column, and then select Unprotected."
     },
     {
+        "healthCategory": "DATA_PROTECTION",
+        "severity": "HIGH",
+        "scoreDeduction": 40,
+        "componentType": "DATA_MANAGER",
+        "componentName": "Data manager",
+        "messageID": "MON0033",
+        "detailedDescription": "The latest system disaster recovery backup does not meet the protection policy service level agreement requirements. There should be at least one system disaster recovery backup performed within the defined policy schedule.",
+        "responseAction": "Verify that the system disaster recovery backup is properly configured.\nIn the PowerProtect Data Manager UI:\n1) Click the Settings icon and select Disaster Recovery.\n2) Go to Configuration and select \"Enable Backup\".\nIf the issue persists, contact Dell Customer Support."
+    },
+    {
         "healthCategory": "COMPONENTS",
         "severity": "MEDIUM",
         "scoreDeduction": 10,

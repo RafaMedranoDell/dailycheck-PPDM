@@ -4,12 +4,12 @@
             {
                 "hostname": "PPDM-01",
                 "username": "DCOapi",
-                "encrypted_password": "gAAAAABnPFYs_jylnrWB4T2RMIX43zD75Uy8zdQ5BwQBh4xRPEoo6LVB449_S2cLvLEmyOvkXJpbSjaTitydkyW5fETyfyF9CA=="
+                "encrypted_password": "gAAAAABnPIWHhxgGsRm_uuvoQ76K7oMsgBFuh959NPQLrCyGRgyUnxikwl3Z8omGRVLOvy1swO0DENc82x9NN8wrHd77IpdqMg=="
             },
             {
                 "hostname": "PPDM-01.demo.local",
                 "username": "DCOapi",
-                "encrypted_password": "gAAAAABnPFYs2gq7IqUxj-zeWz1yVot3xxotqMyVCZ7bB3fOnKJRPf97p8L8hJXhQeTQB9oT59FaZcKJl20CbJQwr7ZQul1CHQ=="
+                "encrypted_password": "gAAAAABnPIWHhiSpK8FaPe0HTpjiO9lT6B26pLed86W0ZvqkBmbmOdDm20EKu8eKfZ_YkWC4Pyo4erXmyKnScXo1wKcKsxhIUg=="
             }
         ]
     }
