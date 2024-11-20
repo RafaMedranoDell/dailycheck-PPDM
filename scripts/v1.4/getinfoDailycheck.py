@@ -1,12 +1,10 @@
-import os
 import requests
 import json
 import urllib3
 from datetime import datetime, timedelta
-from password_manager import PasswordManager
 
 #Definicion de Variables
-config_file = "config_encrypted.json"
+config_file = "config.json"
 
 
 # deshabilitar la advertencia de InsecureRequestWarning
@@ -82,15 +80,11 @@ def filter_entries(entries, fields):
 ##### LLAMADAS PPDM ######
 
 #Funcion para obtener el token
-def get_token_PPDM(instance,username, encrypted_password):
+def get_token_PPDM(instance,username, password):
     url = f'https://{instance}:8443/api/v2/login'
     headers = {
         'Content-Type': 'application/json'
     }
-
-    # Crear instancia de PasswordManager y desencriptar la contraseña
-    password_manager = PasswordManager()
-    password = password_manager.decrypt_password(encrypted_password)
 
     data = {
         "username": username,
@@ -191,8 +185,8 @@ def save_results_to_json(filename, data):
 
 
 # Guardar los datos en un archivo JSON
-def save_json(data, system, instance, query_name, base_path):
-    output_file = os.path.join(base_path, f"{system}-{instance}-{query_name}.json")
+def save_json(data, system, instance, query_name):
+    output_file = f"{system}-{instance}-{query_name}.json"
     with open(output_file, "w") as file:
         json.dump(data, file, indent=4)
     print(f"Datos guardados en: {output_file}")
@@ -200,22 +194,17 @@ def save_json(data, system, instance, query_name, base_path):
 
 def main():
     config = load_config(config_file)
-    base_path = config["basePath"]  # Obtener la ruta base desde el archivo de configuración
 
-    for system, system_data in config["systems"].items():
-        json_files = system_data["files"]["json"]  # Obtener los nombres de los archivos JSON del sistema
-        for instance_info in system_data["instances"]:
+    for system, instances in config["systems"].items():
+        for instance_info in instances:
             instance = instance_info["hostname"]
-            username = instance_info["username"]            
-            # Cambiar password por encrypted_password
-            encrypted_password = instance_info["encrypted_password"]
-            print(f'{instance} {username} {encrypted_password}')
-
+            username = instance_info["username"]
+            password = instance_info["password"]
+            
             if system == "PPDM":
                 # Obtener token de autenticación
-                access_token, _ = get_token_PPDM(instance, username, encrypted_password)
-                print(system)
-                print(system, instance, access_token)
+                access_token, _ = get_token_PPDM(instance,username,password)
+                #print(system, instance, access_token)
 
                 if not access_token:
                     print(f"Error: no se pudo obtener el token para {instance}.")
@@ -226,15 +215,22 @@ def main():
 
                 print("Fetching health issues...")
                 data = get_health_issues(instance, access_token)
-                save_json(data, system, instance, json_files["systemHealthIssues"], base_path)
+                #print("Filtered results for health issues:", health_issues)
+                save_json(data, system, instance, "system_health_issues")
+                print("Saved health issues to health_issues.json")
 
                 print("Fetching job group activities...")
                 data = get_job_group_activities(instance, access_token, today, twenty_four_hours_ago)
-                save_json(data, system, instance, json_files["jobGroupActivitiesSummary"], base_path)
+                #print("Filtered results for job group activities:", job_group_activities)
+                save_json(data, system, instance, "JobGroup_activities_summary")
+                print(f'Saved {instance} JOB_GROUP activities to json file')
 
                 print("Fetching activities that are not OK...")
                 data = get_activities_not_ok(instance, access_token, today, twenty_four_hours_ago)
-                save_json(data, system, instance, json_files["activitiesNotOK"], base_path)
+                #print("Filtered results for activities not OK:", not_ok_activities)
+                #save_results_to_json('activitiesNoOK.json', not_ok_activities)
+                save_json(data, system, instance, "activitiesNotOK")
+                print("Saved not OK activities to activitiesNoOK.json")
 
     
 if __name__ == "__main__":

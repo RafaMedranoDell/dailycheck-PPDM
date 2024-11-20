@@ -49,8 +49,8 @@ def encrypt_config_file(input_file="config.json", output_file="config_encrypted.
         config = json.load(f)
 
     # Encriptar las contraseñas
-    for system, system_data in config["systems"].items():
-        for instance in system_data["instances"]:
+    for system, instances in config["systems"].items():
+        for instance in instances:
             if "password" in instance:
                 # Encriptar la contraseña
                 encrypted_password = password_manager.encrypt_password(instance["password"])
@@ -76,8 +76,8 @@ if __name__ == "__main__":
         encrypted_config = json.load(f)
     
     # Mostrar un ejemplo de desencriptación
-    for system, system_data in encrypted_config["systems"].items():
-        for instance in system_data["instances"]:
+    for system, instances in encrypted_config["systems"].items():
+        for instance in instances:
             if "encrypted_password" in instance:
                 # Desencriptar la contraseña
                 original_password = pm.decrypt_password(instance["encrypted_password"])

@@ -18,10 +18,10 @@ def convert_to_dataframe(data):
     return df
 
 
-def save_dataframe_to_csv(df, file_path):
+def save_dataframe_to_csv(df, file_name):
     """Saves the DataFrame to a CSV file."""
-    os.makedirs(os.path.dirname(file_path), exist_ok=True)
-    df.to_csv(file_path, index=False, quoting=csv.QUOTE_ALL, escapechar='\\')
+    csv_path = file_name
+    df.to_csv(csv_path, index=False, quoting=csv.QUOTE_ALL, escapechar='\\')
     
     if os.path.exists(csv_path):
         print(f'    Archivo guardado exitosamente: {csv_path}')

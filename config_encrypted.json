@@ -1,16 +1,34 @@
 {
+    "basePath": "C:\\github\\dailycheck-PPDM",
     "systems": {
-        "PPDM": [
-            {
-                "hostname": "PPDM-01",
-                "username": "DCOapi",
-                "encrypted_password": "gAAAAABnPIWHhxgGsRm_uuvoQ76K7oMsgBFuh959NPQLrCyGRgyUnxikwl3Z8omGRVLOvy1swO0DENc82x9NN8wrHd77IpdqMg=="
+        "PPDM": {
+            "files": {
+                "json": {
+                    "activitiesNotOK": "activitiesNotOK.json",
+                    "jobGroupActivitiesSummary": "JobGroup_activities_summary.json",
+                    "systemHealthIssues": "system_health_issues.json"
+                },
+                "csv": {
+                    "dashboardHealh": "Dashboard-Health.csv",
+                    "dashboardjobgroupActivities": "Dashboard-JobGroupActivities.csv",
+                    "healthEvents": "Health_events.csv",
+                    "jobErrors": "job_errors.csv",
+                    "assetErrors": "asset_errors.csv",
+                    "hostErrors": "host_errors.csv"
+                }
             },
-            {
-                "hostname": "PPDM-01.demo.local",
-                "username": "DCOapi",
-                "encrypted_password": "gAAAAABnPIWHhiSpK8FaPe0HTpjiO9lT6B26pLed86W0ZvqkBmbmOdDm20EKu8eKfZ_YkWC4Pyo4erXmyKnScXo1wKcKsxhIUg=="
-            }
-        ]
+            "instances": [
+                {
+                    "hostname": "PPDM-01",
+                    "username": "DCOapi",
+                    "encrypted_password": "gAAAAABnPLHvAGDOzFFhAXHjYim13IRh6uitTqwkC--J600-GzNE9hSNpAIM7SsAaH6xWLKkacWpeL3-6ptrchkVKc9F0ftF3g=="
+                },
+                {
+                    "hostname": "PPDM-01.demo.local",
+                    "username": "DCOapi",
+                    "encrypted_password": "gAAAAABnPLHv4eXTNxeRjk9hdEjbd2HCfAg3YuxUrk1UoC1AFv62RUoeTmvQS1B8sH8yyVbVzED6R_yDzt9ALgG_jk75gPcOLw=="
+                }
+            ]
+        }
     }
 }
