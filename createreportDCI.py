@@ -10,21 +10,29 @@ with open("config.json") as config_file:
     config = json.load(config_file)
 
 
-# Función para cargar y aplicar estilo a los datos de Health Events
-def load_and_style_health_events(system, hostname):
-    # Cargar el archivo basado en el hostname y system
-    health_event_files = glob.glob(f"{system}-{hostname}-Health_events.csv")
+# Función para cargar y aplicar estilo a los datos
+def load_and_style_data(system, hostname):
+    # Cargar los archivos basados en el hostname y system
+    health_files = glob.glob(f"{system}-{hostname}-Dashboard-Health.csv")
+    job_files = glob.glob(f"{system}-{hostname}-Dashboard-JobGroupActivities.csv")
 
-    # Inicializar variable para almacenar el HTML
-    html_health_events = ""
+    # Inicializar variables para almacenar el HTML
+    html_health = ""
+    html_job_group = ""
 
-    # Procesar archivos de "Health Events"
-    for health_event_file in health_event_files:
-        df_health_events = pd.read_csv(health_event_file)
-        styled_health_events = df_health_events.style.applymap(color_severity, subset=['severity'])
-        html_health_events += styled_health_events.to_html()
+    # Procesar archivos de "Health"
+    for health_file in health_files:
+        df_health = pd.read_csv(health_file)
+        styled_health = df_health.style.map(color_score, subset=['Score'])
+        html_health += styled_health.to_html()
 
-    return html_health_events
+    # Procesar archivos de "Job Group Activities"
+    for job_file in job_files:
+        df_job_group = pd.read_csv(job_file)
+        styled_job_group = df_job_group.style.apply(color_failed, axis=1)
+        html_job_group += styled_job_group.to_html()
+
+    return html_health, html_job_group
 
 
 # Definir la función para colorear las celdas en la columna "severity" con tonos pastel
@@ -46,13 +54,13 @@ table_style = """
         width: 100%;
         font-family: Arial, sans-serif;
         margin-bottom: 20px;
-        font-size: 11px;
+        font-size: 11px;  /* Tamaño de fuente para toda la tabla */
     }
     th, td {
         border: 1px solid #ddd;
         padding: 8px;
         text-align: left;
-        font-size: 11px;
+        font-size: 11px;  /* Tamaño de fuente para las celdas */
         padding: 4px 4px;  /* Reducir el padding vertical a 4px y horizontal a 8px */
     }
     th {
@@ -75,7 +83,7 @@ html_body = f"""
 <html>
     <head>{table_style}</head>
     <body>
-        <h2 style="font-family: Arial, sans-serif; color: #0044cc;">DAILYCHECK PPDM - Health Events</h2>
+        <h2 style="font-family: Arial, sans-serif; color: #0044cc;">DAILY INVESTIGATION PPDM</h2>
 """
 
 
@@ -85,17 +93,25 @@ for system, instances in config["systems"].items():
         hostname = instance["hostname"]
 
         # Cargar y dar estilo a los datos para el hostname actual
-        html_health_events = load_and_style_health_events(system, hostname)
+        html_health, html_job_group = load_and_style_data(system, hostname)
 
         # Agregar la sección para el hostname actual
         html_body += f"""
         <h3 style="font-family: Arial, sans-serif; color: #0066cc;">Hostname: {hostname}</h3>
         
-        <div style="padding: 10px;">
-            <p style="font-family: Arial, sans-serif; font-weight: bold; text-decoration: underline; color: #333;">
-                Health Events
-            </p>
-            {html_health_events}
+        <div style="display: flex; justify-content: space-around; padding: 10px;">
+            <div style="width: 48%;">
+                <p style="font-family: Arial, sans-serif; font-weight: bold; text-decoration: underline; color: #333;">
+                    Health Status
+                </p>
+                {html_health}
+            </div>
+            <div style="width: 48%;">
+                <p style="font-family: Arial, sans-serif; font-weight: bold; text-decoration: underline; color: #333;">
+                    Jobs | Protection - Last 24 hours
+                </p>
+                {html_job_group}
+            </div>
         </div>
         """
 

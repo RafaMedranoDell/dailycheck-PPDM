@@ -27,6 +27,18 @@ def load_and_style_health_events(system, hostname):
     return html_health_events
 
 
+# Función para cargar y aplicar estilo a los datos de Job Errors
+def load_and_style_job_errors(system, hostname):
+    job_error_files = glob.glob(f"{system}-{hostname}-jobErrors.csv")
+    html_job_errors = ""
+
+    for job_error_file in job_error_files:
+        df_job_errors = pd.read_csv(job_error_file)
+        html_job_errors += df_job_errors.to_html()
+
+    return html_job_errors
+
+
 # Definir la función para colorear las celdas en la columna "severity" con tonos pastel
 def color_severity(val):
     if val == 'LOW':
@@ -86,6 +98,7 @@ for system, instances in config["systems"].items():
 
         # Cargar y dar estilo a los datos para el hostname actual
         html_health_events = load_and_style_health_events(system, hostname)
+        html_job_errors = load_and_style_job_errors(system, hostname)
 
         # Agregar la sección para el hostname actual
         html_body += f"""
@@ -96,6 +109,11 @@ for system, instances in config["systems"].items():
                 Health Events
             </p>
             {html_health_events}
+
+            <p style="font-family: Arial, sans-serif; font-weight: bold; text-decoration: underline; color: #333;">
+                Job Errors
+            </p>
+            {html_job_errors}
         </div>
         """
 
@@ -113,3 +131,24 @@ with tempfile.NamedTemporaryFile('w', delete=False, suffix='.html') as f:
 # Abrir el archivo en el navegador predeterminado
 webbrowser.open(f'file://{temp_file_path}')
 
+
+# Configurar los parámetros del correo
+sender_email = "DailycheckHDV@hdv.com"
+receiver_email = "dell.residencies@dell.com"
+subject = "DAILYCHECK "
+smtp_server = "esa-relay.rsvgnw.local"
+smtp_port = 25
+
+# Crear el mensaje MIME
+message = MIMEMultipart("alternative")
+message["Subject"] = subject
+message["From"] = sender_email
+message["To"] = receiver_email
+
+# Agregar el contenido HTML al mensaje
+html_part = MIMEText(html_body, "html")
+message.attach(html_part)
+
+# Enviar el correo sin autenticación
+with smtplib.SMTP(smtp_server, smtp_port) as server:
+    server.sendmail(sender_email, receiver_email, message.as_string())
