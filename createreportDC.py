@@ -43,6 +43,17 @@ def color_status(val):
     return ''
 
 
+# Definir la función para colorear las celdas en la columna "READINESS"
+def color_readiness(val): 
+    if val == "ready": 
+        return 'background-color: #b3e6b3; color: #2d6a2d'  # Verde pastel
+    elif val == "migrating": 
+        return 'background-color: #fff2b3; color: #7a7a00'  # Amarillo pastel
+    elif val == "not_ready": 
+        return 'background-color: #f7b3b3; color: #a10000'  # Rojo pastel
+    return ''
+
+
 # CSS modificado con control de altura
 table_style = """
 <style>
@@ -131,6 +142,7 @@ def load_and_style_data(system, hostname, config):
             df_storage.style
             .format(precision=2)  # Limitar a dos decimales en todas las columnas numéricas
             .applymap(color_status, subset=['STATUS'])  # Aplicar color solo en la columna "status"
+            .applymap(color_readiness, subset=['READINESS'])  # Estilo en 'READINESS'            
         )
         html_storage_systems = styled_storage_systems.to_html(table_attributes='class="data-table"')
   
