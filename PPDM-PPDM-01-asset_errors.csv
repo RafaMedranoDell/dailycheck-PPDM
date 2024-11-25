@@ -1,3 +1,2 @@
 "category","result.status","result.error.code","protectionPolicy.name","asset.type","Count"
-"CONFIG","FAILED","ASDS0030","Exchange Backups - TEST PLC","MICROSOFT_EXCHANGE_DATABASE","4"
-"PROTECT","UNKNOWN","ABA0023","Exchange Backups - TEST PLC","MICROSOFT_EXCHANGE_DATABASE","5"
+"RESTORE","OK_WITH_ERRORS","ARV0046","vCenterLab - Daily","VMWARE_VIRTUAL_MACHINE","1"

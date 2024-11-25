@@ -1,3 +1,3 @@
 "category","result.status","result.error.code","protectionPolicy.name","Count"
-"CONFIG","FAILED","ASDS0030","Exchange Backups - TEST PLC","1"
-"PROTECT","UNKNOWN","ABA0023","Exchange Backups - TEST PLC","1"
+"PROTECT","SKIPPED","ABS0003","MSSQL - Standard","4"
+"RESTORE","OK_WITH_ERRORS","ARV0046","vCenterLab - Daily","1"

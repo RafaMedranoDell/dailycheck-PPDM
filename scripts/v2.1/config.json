@@ -1,5 +1,5 @@
 {
-    "basePath": "C:\\github\\dailycheck-PPDM",
+    "basePath": "E:\\DCO\\dailycheck-PPDM",
     "systems": {
         "PPDM": {
             "files": {
@@ -21,12 +21,12 @@
                 {
                     "hostname": "PPDM-01",
                     "username": "DCOapi",
-                    "encrypted_password": "gAAAAABnQFKltpFtXl50vrk9nyUp4Jm45_jhSwqtrUkAtWYz4Jj_JbNRM-RTwo5MoBPLT5yP9utUL5EMOkJnfJ_zXDT3rn5bOQ=="
+                    "password": "Password123!"
                 },
                 {
                     "hostname": "PPDM-01.demo.local",
                     "username": "DCOapi",
-                    "encrypted_password": "gAAAAABnQFKlLbGbH2b50pVb61mgLmEg1orDEP2WEvb6SZyORFP1mciC2ug1IjHoiOhvP4YJAuQ3dR7fayVfrOpOJqAL_JMwOQ=="
+                    "password": "Password123!"
                 }
             ]
         }
