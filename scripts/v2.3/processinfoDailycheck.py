@@ -266,8 +266,8 @@ def process_storage_systems(df, system, instance, config):
                 'NAME': name,
                 'READINESS': readiness,
                 'TIER': capacity.get('type', ''),
-                # 'SIZE': capacity.get('totalPhysicalSize', ''),
-                # 'USED': capacity.get('totalPhysicalUsed', ''),
+                'SIZE': capacity.get('totalPhysicalSize', ''),
+                'USED': capacity.get('totalPhysicalUsed', ''),
                 'PERCENT USED': f"{capacity.get('percentUsed', 0):.2f}",  # Format to 2 decimal places
                 'STATUS': capacity.get('capacityStatus', '')
             })

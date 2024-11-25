@@ -1,12 +1,13 @@
 {
-    "basePath": "E:\\DCO\\dailycheck-PPDM",
+    "basePath": "C:\\github\\dailycheck-PPDM",
     "systems": {
         "PPDM": {
             "files": {
                 "json": {
                     "activitiesNotOK": "activitiesNotOK.json",
                     "jobGroupActivitiesSummary": "JobGroup_activities_summary.json",
-                    "systemHealthIssues": "system_health_issues.json"
+                    "systemHealthIssues": "system_health_issues.json",
+                    "storageSystems": "storage_systems.json"
                 },
                 "csv": {
                     "dashboardHealh": "Dashboard-Health.csv",

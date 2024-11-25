@@ -1,0 +1,5 @@
+"NAME","READINESS","TIER","PERCENT USED","STATUS"
+"ddve-01.demo.local","ready","ACTIVE","26.96","GOOD"
+"ddve-01.demo.local","ready","COMBINED","26.96","GOOD"
+"ddve-02.demo.local","ready","ACTIVE","0.72","GOOD"
+"ddve-02.demo.local","ready","COMBINED","0.72","GOOD"

@@ -6,7 +6,8 @@
                 "json": {
                     "activitiesNotOK": "activitiesNotOK.json",
                     "jobGroupActivitiesSummary": "JobGroup_activities_summary.json",
-                    "systemHealthIssues": "system_health_issues.json"
+                    "systemHealthIssues": "system_health_issues.json",
+                    "storageSystems": "storage_systems.json"
                 },
                 "csv": {
                     "dashboardHealh": "Dashboard-Health.csv",
@@ -16,19 +17,20 @@
                     "assetErrors": "asset_errors.csv",
                     "hostErrors": "host_errors.csv",
                     "uniqueErrorsNoSkipped": "unique_errors_no_skipped.csv",
-                    "summaryJobsSkipped": "summary_jobs_skipped.csv"            
+                    "summaryJobsSkipped": "summary_jobs_skipped.csv",
+                    "storageSystems": "storage_systems.csv"
                 }
             },
             "instances": [
                 {
                     "hostname": "PPDM-01",
                     "username": "DCOapi",
-                    "encrypted_password": "gAAAAABnQFKltpFtXl50vrk9nyUp4Jm45_jhSwqtrUkAtWYz4Jj_JbNRM-RTwo5MoBPLT5yP9utUL5EMOkJnfJ_zXDT3rn5bOQ=="
+                    "encrypted_password": "gAAAAABnRI-aG8oKW3f36nsyLv3pTvhTqKgewvOd4A49Tr0NhOSRINU4gtY-i3KdQhOykqVJJCEROqt3c8Joyv1d1RYzqmEOKQ=="
                 },
                 {
                     "hostname": "PPDM-01.demo.local",
                     "username": "DCOapi",
-                    "encrypted_password": "gAAAAABnQFKlLbGbH2b50pVb61mgLmEg1orDEP2WEvb6SZyORFP1mciC2ug1IjHoiOhvP4YJAuQ3dR7fayVfrOpOJqAL_JMwOQ=="
+                    "encrypted_password": "gAAAAABnRI-aYBFYT1wUxVSoldHqyu-nnX8UYDDnAhSw1hHXy9LNphqAPaZWCl_TlyHiLKXOVNAs18Y20hyCorGv4-8PoooxhQ=="
                 }
             ]
         }
