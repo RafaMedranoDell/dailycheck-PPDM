@@ -14,11 +14,11 @@ with open("config_encrypted.json") as config_file:
 # Definir la función para colorear las celdas en la columna "severity" con tonos pastel
 def color_severity(val):
     if val == 'LOW':
-        return 'background-color: #ffd9b3 !important; color: #b35900 !important'
+        return 'background-color: #ffd9b3 !important; color: #b35900 !important'  # Naranja pastel
     elif val == 'MEDIUM':
-        return 'background-color: #fff2b3 !important; color: #7a7a00 !important'
+        return 'background-color: #fff2b3 !important; color: #7a7a00 !important'  # Amarillo pastel
     elif val == 'HIGH':
-        return 'background-color: #f7b3b3 !important; color: #a10000 !important'
+        return 'background-color: #f7b3b3 !important; color: #a10000 !important'  # Rojo pastel
     return ''
 
 # CSS mejorado para compatibilidad con Outlook

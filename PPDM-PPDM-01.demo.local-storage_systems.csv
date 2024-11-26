@@ -1,5 +1,4 @@
 "NAME","READINESS","TIER","PERCENT USED","STATUS"
-"ddve-01.demo.local","ready","ACTIVE","26.96","GOOD"
-"ddve-01.demo.local","ready","COMBINED","26.96","GOOD"
-"ddve-02.demo.local","ready","ACTIVE","0.72","GOOD"
-"ddve-02.demo.local","ready","COMBINED","0.72","GOOD"
+"dcb3-200-dd01.rsvgnw.local","ready","ACTIVE","66.55","GOOD"
+"dcb3-200-dd01.rsvgnw.local","ready","CLOUD","89.17","FAIR"
+"dcb3-200-dd01.rsvgnw.local","ready","COMBINED","75.22","GOOD"

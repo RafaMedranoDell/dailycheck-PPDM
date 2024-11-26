@@ -1,0 +1,37 @@
+{
+    "basePath": "C:\\github\\dailycheck-PPDM",
+    "systems": {
+        "PPDM": {
+            "files": {
+                "json": {
+                    "activitiesNotOK": "activitiesNotOK.json",
+                    "jobGroupActivitiesSummary": "JobGroup_activities_summary.json",
+                    "systemHealthIssues": "system_health_issues.json",
+                    "storageSystems": "storage_systems.json"
+                },
+                "csv": {
+                    "dashboardHealh": "Dashboard-Health.csv",
+                    "dashboardjobgroupActivities": "Dashboard-JobGroupActivities.csv",
+                    "healthEvents": "Health_events.csv",
+                    "jobErrors": "job_errors.csv",
+                    "assetErrors": "asset_errors.csv",
+                    "hostErrors": "host_errors.csv",
+                    "uniqueErrorsNoSkipped": "unique_errors_no_skipped.csv",
+                    "summaryJobsSkipped": "summary_jobs_skipped.csv"
+                }
+            },
+            "instances": [
+                {
+                    "hostname": "PPDM-01",
+                    "username": "DCOapi",
+                    "password": "Password123!"
+                },
+                {
+                    "hostname": "PPDM-01.demo.local",
+                    "username": "DCOapi",
+                    "password": "Password123!"
+                }
+            ]
+        }
+    }
+}
