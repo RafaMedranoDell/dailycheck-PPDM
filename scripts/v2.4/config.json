@@ -1,7 +1,7 @@
 {
     "basePath": "C:\\github\\dailycheck-PPDM",
     "jsonPath": "jsonFiles",
-    "csvPath": "csvFiles",
+    "csvPath": "",
     "systems": {
         "PPDM": {
             "files": {
@@ -20,8 +20,7 @@
                     "assetErrors": "asset_errors.csv",
                     "hostErrors": "host_errors.csv",
                     "uniqueErrorsNoSkipped": "unique_errors_no_skipped.csv",
-                    "summaryJobsSkipped": "summary_jobs_skipped.csv",
-                    "storageSystems": "storage_systems.csv"
+                    "summaryJobsSkipped": "summary_jobs_skipped.csv"
                 }
             },
             "instances": [

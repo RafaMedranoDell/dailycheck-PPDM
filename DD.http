@@ -1,0 +1,111 @@
+@endpoint = "https://ppdm-01:8443/api/v2/"
+
+### login
+# @name login
+POST https://ppdm-01:8443/api/v2/login
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "Password123!"
+}
+
+### REFRESH TOKEN
+# @name token
+POST https://ppdm-01:8443/api/v2/token 
+Authorization: Bearer {{login.response.body.access_token}}
+Content-Type: application/json
+
+{
+    "refresh_token": "{{login.response.body.refresh_token}}",
+    "grant_type": "refresh_token",
+    "scope": "aaa"
+}
+
+### GET  BASIC STORAGE STATISTICS
+GET https://ppdm-01:8443/api/v2/storage-systems
+Authorization: {{token.response.body.access_token}}
+
+### GET ALL ACTIVITIES
+GET https://ppdm-01:8443/api/v2/activities  
+Authorization: {{token.response.body.access_token}}
+
+######### GET ALERTS
+GET https://ppdm-01:8443/api/v2/alerts
+Authorization: {{token.response.body.access_token}}
+
+
+######### GET COMPONENTS
+GET https://ppdm-01:8443/api/v2/components
+Authorization: {{token.response.body.access_token}}
+
+
+######### GET AGGREGATION OF STATE COUNTS FOR ACTIVITIES
+GET https://ppdm-01:8443/api/v2/activity-metrics
+Authorization: {{token.response.body.access_token}}
+
+
+######### GET ALL ALERT METRICS
+GET https://ppdm-01:8443/api/v2/alert-metrics
+Authorization: {{token.response.body.access_token}}
+
+
+######### GET ALL NETWORKS
+GET https://ppdm-01:8443/api/v2/networks
+Authorization: {{token.response.body.access_token}}
+
+
+######### GET PROTECTION METRICS
+GET https://ppdm-01:8443/api/v2/protection-metrics
+Authorization: {{token.response.body.access_token}}
+
+
+######### GET ASSET PROTECTION METRICS
+GET https://ppdm-01:8443/api/v2/asset-protection-metrics
+Authorization: {{token.response.body.access_token}}
+
+
+######### GET ASSET RESOURCE METRICS
+GET https://ppdm-01:8443/api/v2/asset-resource-metrics
+Authorization: {{token.response.body.access_token}}
+
+
+######### GET SYSTEM HEALTH ISSUES
+GET https://ppdm-01:8443/api/v2/system-health-issues
+Authorization: {{token.response.body.access_token}}
+
+
+######### GET SYSTEM HEALTH SCORE CATEGORIES
+GET https://ppdm-01:8443/api/v2/system-health-score-categories
+Authorization: {{token.response.body.access_token}}
+
+
+
+######### GET PROTECTION DETAILS
+GET https://ppdm-01:8443/api/v2/protection-details
+Authorization: {{token.response.body.access_token}}
+
+
+######### GET ALL ACTIVITIES FOR A GROUP-BY ENTITY
+GET https://ppdm-01:8443/api/v2/grouped-activities
+Authorization: {{token.response.body.access_token}}
+
+######### GET PROTECTION STORAGE METRICS
+GET https://ppdm-01:8443/api/v2/protection-storage-metrics
+Authorization: {{token.response.body.access_token}}
+
+######### GET PROTECTION STORAGE SYSTEMS
+GET https://ppdm-01:8443/api/v2/storage-systems
+Authorization: {{token.response.body.access_token}}
+
+
+######### GET INFRASTRUCTURE NODES
+GET https://ppdm-01:8443/api/v2/infrastructure-nodes
+Authorization: {{token.response.body.access_token}}
+Content-Type: application/json
+
+{
+    "hierarchyType": "FILE_SYSTEM_VIEW",
+    "grant_type": "refresh_token",
+    "scope": "aaa"
+}

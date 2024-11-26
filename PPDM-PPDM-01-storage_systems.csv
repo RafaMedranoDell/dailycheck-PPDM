@@ -1,7 +1,0 @@
-"NAME","READINESS","TIER","PERCENT USED","STATUS"
-"dcb3-200-dd01.rsvgnw.local","ready","ACTIVE","66.55","GOOD"
-"dcb3-200-dd01.rsvgnw.local","ready","CLOUD","89.17","FAIR"
-"dcb3-200-dd01.rsvgnw.local","ready","COMBINED","75.22","GOOD"
-"dcm4-200-dd02.rsvgnw.local","ready","ACTIVE","63.42","GOOD"
-"dcm4-200-dd02.rsvgnw.local","ready","CLOUD","87.24","FAIR"
-"dcm4-200-dd02.rsvgnw.local","ready","COMBINED","72.77","GOOD"
