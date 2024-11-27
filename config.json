@@ -36,6 +36,23 @@
                     "password": "Password123!"
                 }
             ]
+        },
+        "DD": {
+            "files": {
+                "cert": "certs\\DD_cacert.pem",
+                "json": {
+                    "activeAlerts": "active_alerts.json",
+                    "services": "services.json"
+                },
+                "csv":{}                
+            },
+            "instances": [
+                {
+                    "hostname": "ddve-01",
+                    "username": "DCOapi",
+                    "password": "Password123!"
+                }
+            ]
         }
     }
 }

@@ -28,12 +28,29 @@
                 {
                     "hostname": "PPDM-01.demo.local",
                     "username": "DCOapi",
-                    "encrypted_password": "gAAAAABnRaRkEFWlYRM1XCh95CrJTG82qcDZZChNs4khk5wqW2cBoKfawCTgEyegCmEyX1I-Lw-3PR2cpV-Q3oNfdVoTrmUy6Q=="
+                    "encrypted_password": "gAAAAABnRgJv17CJCUjsYVDxRJAsmhVBBfMFTd9wM9lH3BN6LgdXVSCxC-WWRC3fBTdc_fRru1yS_SmJWCP6nAu8v-H2bXLKpQ=="
                 },
                 {
                     "hostname": "192.168.1.15",
                     "username": "DCOapi",
-                    "encrypted_password": "gAAAAABnRaRkF_blvHMk9AzqS43775nh2rAqS2XX_knegbqhdyEYK2RPAqjFaTt0y2Wk_mfdRiwLc4RUoSrH0aLRRd1D5px5ig=="
+                    "encrypted_password": "gAAAAABnRgJvJ53SG3ef_Wis4QESQgW8_ovOAaK93J2Q6-pSfNo1GLM4aGbkdsV-wut2nvReRymgWGb01UrUq4zCMoWF_SKeoQ=="
+                }
+            ]
+        },
+        "DD": {
+            "files": {
+                "cert": "certs\\DD_cacert.pem",
+                "json": {
+                    "activeAlerts": "active_alerts.json",
+                    "services": "services.json"
+                },
+                "csv": {}
+            },
+            "instances": [
+                {
+                    "hostname": "ddve-01",
+                    "username": "DCOapi",
+                    "encrypted_password": "gAAAAABnRgJvvNv2BQW2u8Wdqdhp2AanSQWDO7UJYtOv43EDjPhIHeaB6d90ysW4OMTBp9h-PbwocOMYnVJyagmvheXP3X5CAQ=="
                 }
             ]
         }

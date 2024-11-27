@@ -1,0 +1,62 @@
+[
+    {
+        "name": "ntp",
+        "status": "DISABLED"
+    },
+    {
+        "name": "snmp",
+        "status": "ENABLED"
+    },
+    {
+        "name": "iscsi",
+        "status": "DISABLED"
+    },
+    {
+        "name": "license-server",
+        "status": "NOT_SET"
+    },
+    {
+        "name": "log",
+        "status": "DISABLED"
+    },
+    {
+        "name": "asup",
+        "status": "ENABLED"
+    },
+    {
+        "name": "nfs",
+        "status": "ENABLED"
+    },
+    {
+        "name": "filesys",
+        "status": "ENABLED"
+    },
+    {
+        "name": "encryption",
+        "status": "DISABLED"
+    },
+    {
+        "name": "cloud",
+        "status": "DISABLED"
+    },
+    {
+        "name": "ddboost",
+        "status": "ENABLED"
+    },
+    {
+        "name": "cifs",
+        "status": "ENABLED"
+    },
+    {
+        "name": "vdisk",
+        "status": "DISABLED"
+    },
+    {
+        "name": "vtl",
+        "status": "DISABLED"
+    },
+    {
+        "name": "replication",
+        "status": "ENABLED"
+    }
+]
