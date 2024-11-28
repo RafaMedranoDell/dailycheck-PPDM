@@ -232,23 +232,23 @@ webbrowser.open(f'file://{temp_file_path}')
 # Generar la fecha actual en formato YYYYMMDD
 fecha_actual = datetime.now().strftime("%Y%m%d")
 
-# Configurar los parámetros del correo
-sender_email = "dell.residencies@dell.com"
-receiver_email = "dell.residencies@dell.com"
-subject = f"HDV_{fecha_actual}_Daily_Check (AUTOMATED)"
-smtp_server = "esa-relay.rsvgnw.local"
-smtp_port = 25
+# # Configurar los parámetros del correo
+# sender_email = "dell.residencies@dell.com"
+# receiver_email = "dell.residencies@dell.com"
+# subject = f"HDV_{fecha_actual}_Daily_Check (AUTOMATED)"
+# smtp_server = "esa-relay.rsvgnw.local"
+# smtp_port = 25
 
-# Crear el mensaje MIME
-message = MIMEMultipart("alternative")
-message["Subject"] = subject
-message["From"] = sender_email
-message["To"] = receiver_email
+# # Crear el mensaje MIME
+# message = MIMEMultipart("alternative")
+# message["Subject"] = subject
+# message["From"] = sender_email
+# message["To"] = receiver_email
 
-# Agregar el contenido HTML al mensaje
-html_part = MIMEText(html_body, "html")
-message.attach(html_part)
+# # Agregar el contenido HTML al mensaje
+# html_part = MIMEText(html_body, "html")
+# message.attach(html_part)
 
-# Enviar el correo sin autenticación
-with smtplib.SMTP(smtp_server, smtp_port) as server:
-    server.sendmail(sender_email, receiver_email, message.as_string())
+# # Enviar el correo sin autenticación
+# with smtplib.SMTP(smtp_server, smtp_port) as server:
+#     server.sendmail(sender_email, receiver_email, message.as_string())

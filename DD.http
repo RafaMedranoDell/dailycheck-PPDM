@@ -10,9 +10,40 @@ Content-Type: application/json
     "password": "Password123!"
 }
 
-
 ### DD - GET ALERTS
 GET https://ddve-01:3009/rest/v2/dd-systems/0/alerts
 X-DD-AUTH-TOKEN: {{login.response.headers.X-DD-AUTH-TOKEN}}
 
 
+### DD - STATUS OF SERVICES
+GET https://ddve-01:3009/rest/v1.0/dd-systems/0/services
+X-DD-AUTH-TOKEN: {{login.response.headers.X-DD-AUTH-TOKEN}}
+
+
+#########################################################
+#########################################################
+
+### DD - login
+# @name logindd01
+POST https://ddve-01:3009/rest/v1.0/auth
+Content-Type: application/json
+
+{
+    "username": "DCOapi",
+    "password": "Password123!"
+}
+
+### DD - GET ALERTS
+GET https://ddve-02:3009/rest/v2/dd-systems/0/alerts
+X-DD-AUTH-TOKEN: {{logindd01.response.headers.X-DD-AUTH-TOKEN}}
+
+### DD - GET ALERTS
+GET https://ddve-02:3009/rest/v2/dd-systems/0/alerts
+X-DD-AUTH-TOKEN: a377c86754154f9d7c85b38013db51cbf
+
+### DD - STATUS OF SERVICES
+GET https://ddve-02:3009/rest/v1.0/dd-systems/0/services
+X-DD-AUTH-TOKEN: {{logindd01.response.headers.X-DD-AUTH-TOKEN}}
+
+
+###192.168.1.31

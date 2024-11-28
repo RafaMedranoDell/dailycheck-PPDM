@@ -28,7 +28,8 @@
                 {
                     "hostname": "PPDM-01.demo.local",
                     "username": "DCOapi",
-                    "password": "Password123!"
+                    "password": "Password123!",
+                    "certFile": "certs\\PPDM_rootca.pem"
                 },
                 {
                     "hostname": "192.168.1.15",
