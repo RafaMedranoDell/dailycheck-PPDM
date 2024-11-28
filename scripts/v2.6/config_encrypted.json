@@ -22,6 +22,7 @@
                 "csv": {
                     "dashboardHealh": "Dashboard-Health.csv",
                     "dashboardjobgroupActivities": "Dashboard-JobGroupActivities.csv",
+                    "dashboardJobGroupRate": "Dashboard-JobGroupRate.csv",
                     "healthEvents": "Health_events.csv",
                     "jobErrors": "job_errors.csv",
                     "assetErrors": "asset_errors.csv",
@@ -36,12 +37,12 @@
                     "hostname": "PPDM-01.demo.local",
                     "username": "DCOapi",
                     "certFile": "certs\\PPDM_rootca.pem",
-                    "encrypted_password": "gAAAAABnSC6VpA7MxbmldXkEaidDpK-qhnzfzp4R4Ubx-ivEXnLf9joeqVs16duhSEgf2vQbftggm8V886Mly1rq-2eK_AHSDg=="
+                    "encrypted_password": "gAAAAABnSI1_d0c2-Xf05RYZtXLyF5Wv7i7vd3bMfHSxf7F93r9ZQsGryvfZstmWNEc0_ZJDZMIdFKKRST18IaUSChw1UPuHow=="
                 },
                 {
                     "hostname": "192.168.1.15",
                     "username": "DCOapi",
-                    "encrypted_password": "gAAAAABnSC6VTSxnewWJ9aGDN1iIGeU7b5oEh3HK6S1fYZv3xqV6arMtz98MjRPP-fOUYr77blAYV--hk0n6QjGZgfe3nuylZQ=="
+                    "encrypted_password": "gAAAAABnSI1_NFjf2qyd5-4gP287yPdQ-xkpkk5TG4RMH2ACk0QdVvhN050mZmL1zs99bThjdLX0eTyre-6koQnklwSXZWAFhQ=="
                 }
             ]
         },
@@ -58,7 +59,7 @@
                 {
                     "hostname": "ddve-01",
                     "username": "DCOapi",
-                    "encrypted_password": "gAAAAABnSC6Vl1Gf4NBh0uTNwSGH0jTfAT4iTaCFhDMWgTRntpBGsz8oM9E9-osEnVzF-gslLpemab71iWQ7pM4HnMzXWzO4Bg=="
+                    "encrypted_password": "gAAAAABnSI1_xgV-X-8x7_87GzQ4N-dFN4fdGcl5UVnXyMPEkpJ_3YZpxCdEtFeTlgpeN6sI1XHu4KaiiNeb81JkwdKg03NSjw=="
                 }
             ]
         }

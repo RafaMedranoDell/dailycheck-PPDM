@@ -22,6 +22,7 @@
                 "csv": {
                     "dashboardHealh": "Dashboard-Health.csv",
                     "dashboardjobgroupActivities": "Dashboard-JobGroupActivities.csv",
+                    "dashboardJobGroupRate": "Dashboard-JobGroupRate.csv",
                     "healthEvents": "Health_events.csv",
                     "jobErrors": "job_errors.csv",
                     "assetErrors": "asset_errors.csv",

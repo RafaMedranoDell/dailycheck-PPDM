@@ -120,8 +120,8 @@ def load_and_style_unique_errors_no_skipped(system, hostname, config):
     csvPath= os.path.join(base_path, csv_relative_path)
     csv_files = config['systems'][system]['files']['csv']
 
-    unique_errors_no_skipped_files = glob.glob(f"{base_path}/{system}-{hostname}-{csv_files['uniqueErrorsNoSkipped']}")
-    
+    unique_errors_no_skipped_files = glob.glob(f"{csvPath}/{system}-{hostname}-{csv_files['uniqueErrorsNoSkipped']}")
+
     html_unique_errors_no_skipped = ""
     
     for unique_errors_no_skipped_file in unique_errors_no_skipped_files:
