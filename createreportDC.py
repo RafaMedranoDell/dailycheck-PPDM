@@ -194,15 +194,15 @@ for system, system_config in config["systems"].items():
             <tr>
                 <td class="table-cell">
                     <p style="font-family: Arial, sans-serif; font-weight: bold; text-decoration: underline; color: #333; margin: 5px 0;">
-                        Health Status
-                    </p>
-                    {html_health}
-                </td>
-                <td class="table-cell">
-                    <p style="font-family: Arial, sans-serif; font-weight: bold; text-decoration: underline; color: #333; margin: 5px 0;">
                         Jobs | Protection - Last 24 hours
                     </p>
                     {html_job_group}
+                </td>
+                <td class="table-cell">
+                    <p style="font-family: Arial, sans-serif; font-weight: bold; text-decoration: underline; color: #333; margin: 5px 0;">
+                        Health Status
+                    </p>
+                    {html_health}
                 </td>
                 <td class="table-cell">
                     <p style="font-family: Arial, sans-serif; font-weight: bold; text-decoration: underline; color: #333; margin: 5px 0;">
@@ -230,14 +230,15 @@ webbrowser.open(f'file://{temp_file_path}')
 
 
 # Generar la fecha actual en formato YYYYMMDD
-fecha_actual = datetime.now().strftime("%Y%m%d")
+dateToday = datetime.now().strftime("%Y%m%d")
 
 # Configurar los parámetros del correo
-sender_email = "dell.residencies@dell.com"
-receiver_email = "dell.residencies@dell.com"
-subject = f"HDV_{fecha_actual}_Daily_Check (AUTOMATED)"
-smtp_server = "esa-relay.rsvgnw.local"
-smtp_port = 25
+customerName = config['customer']['name']
+sender_email = config['customer']['senderEmail']
+receiver_email = config['customer']['receiverEmail']
+subject = f"AUTOMATED_{customerName}_{dateToday}_Daily_Check"
+smtp_server = config['customer']['smtpServer']
+smtp_port = config['customer']['smtpPort']
 
 # Crear el mensaje MIME
 message = MIMEMultipart("alternative")
@@ -250,5 +251,5 @@ html_part = MIMEText(html_body, "html")
 message.attach(html_part)
 
 # Enviar el correo sin autenticación
-with smtplib.SMTP(smtp_server, smtp_port) as server:
-    server.sendmail(sender_email, receiver_email, message.as_string())
+# with smtplib.SMTP(smtp_server, smtp_port) as server:
+#    server.sendmail(sender_email, receiver_email, message.as_string())

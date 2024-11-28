@@ -56,7 +56,7 @@ def process_health(df, system, instance, config, csvPath):
     # Rellenar los valores NaN con los valores correspondientes en 'Score' y 'Issues'
     df_health['Score'] = df_health['Score_grouped'].fillna(df_health['Score_base']).astype(int)
     df_health['Issues'] = df_health['Issues_grouped'].fillna(df_health['Issues_base']).astype(int)
-    df_health = df_health[['healthCategory', 'Score', 'Issues']]
+    df_health = df_health[['healthCategory', 'Issues', 'Score']]
 
     # Renombrar la columna 'healthCategory' a 'Health'
     df_health = df_health.rename(columns={'healthCategory': 'CATEGORY'})
@@ -308,6 +308,11 @@ def main():
     csvPath = os.path.join(base_path, csv_relative_path)
     
     for system, system_config in config["systems"].items():
+
+        # Verificar si el sistema es PPDM
+        if system != "PPDM":
+            continue  # Saltar a la siguiente iteración si no es PPDM
+
         print(f'PROCESANDO SISTEMAS "{system}"')
         print('------------------------')
         
