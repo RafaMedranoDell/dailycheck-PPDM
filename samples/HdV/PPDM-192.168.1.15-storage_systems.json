@@ -1,0 +1,256 @@
+[
+    {
+        "type": "POWER_SCALE_APPLIANCE",
+        "name": "clu-nas-s1",
+        "readiness": "READY",
+        "details": {
+            "vmax": null,
+            "xio": null,
+            "dataDomain": null
+        }
+    },
+    {
+        "type": "POWER_SCALE_APPLIANCE",
+        "name": "clu-nas-a2",
+        "readiness": "READY",
+        "details": {
+            "vmax": null,
+            "xio": null,
+            "dataDomain": null
+        }
+    },
+    {
+        "type": "GENERIC_NAS_APPLIANCE",
+        "name": "GENERIC ARRAY",
+        "readiness": "READY",
+        "details": {
+            "vmax": null,
+            "xio": null,
+            "dataDomain": null
+        }
+    },
+    {
+        "type": "DATA_DOMAIN_SYSTEM",
+        "name": "dcb3-200-dd01.rsvgnw.local",
+        "readiness": "READY",
+        "details": {
+            "vmax": null,
+            "xio": null,
+            "dataDomain": {
+                "version": "7.10.1.40-1126469",
+                "totalUsed": 223120958423040.0,
+                "compressionFactor": 20.717518,
+                "model": "DD9400",
+                "replicationEncryptionEnabled": true,
+                "serialNumber": "CRK00224312234",
+                "ddboostLicensed": true,
+                "encryptionLicensed": true,
+                "retentionLockComplianceLicensed": true,
+                "cloudTierLicensed": true,
+                "replicationLicensed": true,
+                "retentionLockGovernanceLicensed": true,
+                "cloudEnabled": true,
+                "vdiskEnabled": false,
+                "preferredNetworkSupported": true,
+                "streamQuotasSupported": true,
+                "capacityQuotasSupported": true,
+                "retentionLockSupported": true,
+                "capacities": [
+                    {
+                        "type": "CLOUD",
+                        "totalPhysicalUsed": 199113946693632.0,
+                        "totalPhysicalSize": 230897323438080.0,
+                        "compressionFactor": 9.439125,
+                        "totalLogicalUsed": 1879461387160575.0,
+                        "totalLogicalSize": 2179468646002568.0,
+                        "percentUsed": 86.23484401153252,
+                        "reductionPercentage": 89.4057974239925,
+                        "capacityStatus": "FAIR",
+                        "totalLicensedSize": 231000000000000.0,
+                        "licensedUtilization": 86.19651372018701
+                    },
+                    {
+                        "type": "COMBINED",
+                        "totalPhysicalUsed": 422234905116672.0,
+                        "totalPhysicalSize": 602172826939392.0,
+                        "compressionFactor": 15.398949,
+                        "totalLogicalUsed": 6501973808242896.0,
+                        "totalLogicalSize": 9272828705892114.0,
+                        "percentUsed": 70.11855836516673,
+                        "reductionPercentage": 93.50605035379591,
+                        "capacityStatus": "GOOD",
+                        "totalLicensedSize": 231000000000000.0,
+                        "licensedUtilization": 182.7856732106805
+                    },
+                    {
+                        "type": "ACTIVE",
+                        "totalPhysicalUsed": 223120958423040.0,
+                        "totalPhysicalSize": 371275503501312.0,
+                        "compressionFactor": 20.717518,
+                        "totalLogicalUsed": 4622512421082321.0,
+                        "totalLogicalSize": 7691906841509811.0,
+                        "percentUsed": 60.09579310213004,
+                        "reductionPercentage": 95.17316692529735,
+                        "capacityStatus": "GOOD",
+                        "totalLicensedSize": 0.0,
+                        "licensedUtilization": 0.0
+                    }
+                ],
+                "preferredInterfaces": [
+                    {
+                        "networkName": "veth1",
+                        "networkAddress": "172.30.80.24",
+                        "purposes": [
+                            "DATA"
+                        ],
+                        "scope": "PUBLIC"
+                    },
+                    {
+                        "networkName": "veth2",
+                        "networkAddress": "172.30.82.20",
+                        "purposes": [
+                            "DATA"
+                        ],
+                        "scope": "PUBLIC"
+                    },
+                    {
+                        "networkName": "veth0",
+                        "networkAddress": "172.30.81.24",
+                        "purposes": [
+                            "DATA"
+                        ],
+                        "scope": "PUBLIC"
+                    },
+                    {
+                        "networkName": "fqdn",
+                        "networkAddress": "dcb3-200-dd01.rsvgnw.local",
+                        "speed": 10000000000.0,
+                        "purposes": [
+                            "MANAGEMENT"
+                        ],
+                        "scope": "PUBLIC"
+                    },
+                    {
+                        "networkName": "ethMa",
+                        "networkAddress": "10.52.8.21",
+                        "speed": 10000000000.0,
+                        "purposes": [
+                            "MANAGEMENT"
+                        ],
+                        "scope": "PUBLIC"
+                    }
+                ],
+                "percentUsed": 60.09579310213004,
+                "totalSize": 371275503501312.0
+            }
+        }
+    },
+    {
+        "type": "DATA_DOMAIN_SYSTEM",
+        "name": "dcm4-200-dd02.rsvgnw.local",
+        "readiness": "READY",
+        "details": {
+            "vmax": null,
+            "xio": null,
+            "dataDomain": {
+                "version": "7.10.1.40-1126469",
+                "totalUsed": 219007936364544.0,
+                "compressionFactor": 21.008073,
+                "model": "DD9400",
+                "replicationEncryptionEnabled": true,
+                "serialNumber": "CRK00224312235",
+                "ddboostLicensed": true,
+                "encryptionLicensed": true,
+                "retentionLockComplianceLicensed": true,
+                "cloudTierLicensed": true,
+                "replicationLicensed": true,
+                "retentionLockGovernanceLicensed": true,
+                "cloudEnabled": true,
+                "vdiskEnabled": false,
+                "preferredNetworkSupported": true,
+                "streamQuotasSupported": true,
+                "capacityQuotasSupported": true,
+                "retentionLockSupported": true,
+                "capacities": [
+                    {
+                        "type": "CLOUD",
+                        "totalPhysicalUsed": 208919044030464.0,
+                        "totalPhysicalSize": 239897323438080.0,
+                        "compressionFactor": 9.000471,
+                        "totalLogicalUsed": 1880369833352942.0,
+                        "totalLogicalSize": 2159188944160120.0,
+                        "percentUsed": 87.08685909302702,
+                        "reductionPercentage": 88.88947055388915,
+                        "capacityStatus": "FAIR",
+                        "totalLicensedSize": 240000000000000.0,
+                        "licensedUtilization": 87.04960167936
+                    },
+                    {
+                        "type": "COMBINED",
+                        "totalPhysicalUsed": 427926980395008.0,
+                        "totalPhysicalSize": 611358947082240.0,
+                        "compressionFactor": 15.145819,
+                        "totalLogicalUsed": 6481304649313344.0,
+                        "totalLogicalSize": 9259532040877262.0,
+                        "percentUsed": 69.99602810056581,
+                        "reductionPercentage": 93.39751788337331,
+                        "capacityStatus": "GOOD",
+                        "totalLicensedSize": 240000000000000.0,
+                        "licensedUtilization": 178.30290849792001
+                    },
+                    {
+                        "type": "ACTIVE",
+                        "totalPhysicalUsed": 219007936364544.0,
+                        "totalPhysicalSize": 371461623644160.0,
+                        "compressionFactor": 21.008073,
+                        "totalLogicalUsed": 4600934815960402.0,
+                        "totalLogicalSize": 7803693077920271.0,
+                        "percentUsed": 58.958428657045246,
+                        "reductionPercentage": 95.23992525160719,
+                        "capacityStatus": "GOOD",
+                        "totalLicensedSize": 0.0,
+                        "licensedUtilization": 0.0
+                    }
+                ],
+                "preferredInterfaces": [
+                    {
+                        "networkName": "fqdn",
+                        "networkAddress": "dcm4-200-dd02.rsvgnw.local",
+                        "speed": 10000000000.0,
+                        "purposes": [
+                            "MANAGEMENT"
+                        ],
+                        "scope": "PUBLIC"
+                    },
+                    {
+                        "networkName": "ethMa",
+                        "networkAddress": "10.52.9.21",
+                        "speed": 10000000000.0,
+                        "purposes": [
+                            "MANAGEMENT"
+                        ],
+                        "scope": "PUBLIC"
+                    },
+                    {
+                        "networkName": "veth0",
+                        "networkAddress": "172.30.81.20",
+                        "purposes": [
+                            "DATA"
+                        ],
+                        "scope": "PUBLIC"
+                    },
+                    {
+                        "networkName": "veth1",
+                        "networkAddress": "172.30.80.20",
+                        "purposes": [
+                            "DATA"
+                        ],
+                        "scope": "PUBLIC"
+                    }
+                ],
+                "percentUsed": 58.958428657045246,
+                "totalSize": 371461623644160.0
+            }
+        }
+    }
+]
