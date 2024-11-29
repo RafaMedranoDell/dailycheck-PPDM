@@ -228,7 +228,6 @@ for system, system_config in config["systems"].items():
                         Job Group Rate
                     </p>
                     {html_job_rate}
-                    <hr style="border: 0; height: 10px; background: #fff; margin: 10px 0;">
                     <p style="font-family: Arial, sans-serif; color: #333; margin: 5px 0;">
                         Categories of Job Groups Included: "PROTECT", "REPLICATE", "RESTORE", "CLOUD_TIER", "INDEX"
                     </p>                    
@@ -286,5 +285,5 @@ html_part = MIMEText(html_body, "html")
 message.attach(html_part)
 
 #Enviar el correo sin autenticación
-# with smtplib.SMTP(smtp_server, smtp_port) as server:
-   # server.sendmail(sender_email, receiver_email, message.as_string())
+with smtplib.SMTP(smtp_server, smtp_port) as server:
+   server.sendmail(sender_email, receiver_email, message.as_string())

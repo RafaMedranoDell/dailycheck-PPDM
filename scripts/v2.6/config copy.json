@@ -1,0 +1,67 @@
+{
+    "basePath": "C:\\github\\dailycheck-PPDM",
+    "jsonPath": "jsonFiles",
+    "csvPath": "csvFiles",
+    "customer": {
+        "name": "HDV",
+        "smtpServer": "esa-relay.rsvgnw.local",
+        "smtpPort": "25",
+        "senderEmail": "DailycheckHDV@hdv.com",
+        "receiverEmail": "dell.residencies@dell.com"
+    },
+    "systems": {
+        "PPDM": {
+            "files": {
+                "cert": "certs\\PPDM_rootca.pem",
+                "json": {
+                    "activitiesNotOK": "activitiesNotOK.json",
+                    "jobGroupActivitiesSummary": "JobGroup_activities_summary.json",
+                    "systemHealthIssues": "system_health_issues.json",
+                    "storageSystems": "storage_systems.json"
+                },
+                "csv": {
+                    "dashboardHealh": "Dashboard-Health.csv",
+                    "dashboardjobgroupActivities": "Dashboard-JobGroupActivities.csv",
+                    "dashboardJobGroupRate": "Dashboard-JobGroupRate.csv",
+                    "healthEvents": "Health_events.csv",
+                    "jobErrors": "job_errors.csv",
+                    "assetErrors": "asset_errors.csv",
+                    "hostErrors": "host_errors.csv",
+                    "uniqueErrorsNoSkipped": "unique_errors_no_skipped.csv",
+                    "summaryJobsSkipped": "summary_jobs_skipped.csv",
+                    "storageSystems": "storage_systems.csv"
+                }
+            },
+            "instances": [
+                {
+                    "hostname": "PPDM-01.demo.local",
+                    "username": "DCOapi",
+                    "password": "Password123!",
+                    "certFile": "certs\\PPDM_rootca.pem"
+                },
+                {
+                    "hostname": "192.168.1.15",
+                    "username": "DCOapi",
+                    "password": "Password123!"
+                }
+            ]
+        },
+        "DD": {
+            "files": {
+                "cert": "certs\\DD_cacert.pem",
+                "json": {
+                    "activeAlerts": "active_alerts.json",
+                    "services": "services.json"
+                },
+                "csv":{}                
+            },
+            "instances": [
+                {
+                    "hostname": "ddve-01",
+                    "username": "DCOapi",
+                    "password": "Password123!"
+                }
+            ]
+        }
+    }
+}
