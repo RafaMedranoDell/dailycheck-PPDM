@@ -261,5 +261,5 @@ html_part = MIMEText(html_body, "html")
 message.attach(html_part)
 
 # Enviar el correo sin autenticación
-# with smtplib.SMTP(smtp_server, smtp_port) as server:
-#    server.sendmail(sender_email, receiver_email, message.as_string())
+with smtplib.SMTP(smtp_server, smtp_port) as server:
+   server.sendmail(sender_email, receiver_email, message.as_string())

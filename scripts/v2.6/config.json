@@ -1,5 +1,5 @@
 {
-    "basePath": "C:\\github\\dailycheck-PPDM",
+    "basePath": "C:\\Users\\dell_support\\Documents\\dailycheck",
     "jsonPath": "jsonFiles",
     "csvPath": "csvFiles",
     "customer": {
@@ -34,32 +34,16 @@
             },
             "instances": [
                 {
-                    "hostname": "PPDM-01.demo.local",
+                    "hostname": "172.30.80.92",
                     "username": "DCOapi",
-                    "password": "Password123!",
-                    "certFile": "certs\\PPDM_rootca.pem"
+                    "certFile": "certs\\vmprdppdm01_rootca.pem",
+                    "encrypted_password": "Password123!"
                 },
                 {
-                    "hostname": "192.168.1.15",
+                    "hostname": "172.30.80.93",
                     "username": "DCOapi",
-                    "password": "Password123!"
-                }
-            ]
-        },
-        "DD": {
-            "files": {
-                "cert": "certs\\DD_cacert.pem",
-                "json": {
-                    "activeAlerts": "active_alerts.json",
-                    "services": "services.json"
-                },
-                "csv":{}                
-            },
-            "instances": [
-                {
-                    "hostname": "ddve-01",
-                    "username": "DCOapi",
-                    "password": "Password123!"
+                    "certFile": "certs\\vmprdppdm02_rootca.pem",
+                    "encrypted_password": "Password123!"
                 }
             ]
         }
