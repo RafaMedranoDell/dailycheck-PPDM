@@ -1,1 +1,77 @@
-[]
+[
+    {
+        "id": "p0-197",
+        "alert_id": "p0-197",
+        "event_id": "EVT-ICD-00001",
+        "status": "active",
+        "class": "SystemMaintenance",
+        "severity": "NOTICE",
+        "name": "ICDRegistryUpgrade",
+        "alert_gen_epoch": 1721652637,
+        "description": "\n          The coredump analysis and coredump notification settings may have been updated as part of the upgrade process.\n      ",
+        "msg": "Coredump analysis settings may have changed during upgrade.",
+        "additional_info": null,
+        "clear_additional_info": null,
+        "action": "\n          Verify the automatic coredump analysis and notification settings are correct.\n          To check the status of automatic coredump analysis, issue the command: support coredump analysis status.\n          To check if analysis results are shared with support, issue the command: support notification show analysis.\n      "
+    },
+    {
+        "id": "p0-199",
+        "alert_id": "p0-199",
+        "event_id": "EVT-SMTOOL-00001",
+        "status": "active",
+        "class": "SystemMaintenance",
+        "severity": "ERROR",
+        "name": "MailserverError",
+        "alert_gen_epoch": 1721652894,
+        "description": "\n            There is a problem communicating with the configured mail server.\n            The system will not be able to send out any email notifications that includes alerts, autosupports and daily summary emails.\n        ",
+        "msg": "Error communicating with mail server.",
+        "additional_info": "Mailserver=exchange.demo.local : Cause=NotApplicable",
+        "clear_additional_info": "Mailserver=exchange.demo.local : Cause=NotApplicable",
+        "action": "\n            Make sure that the mail server is configured correctly.\n            Verify the configured mail server by sending out a test email from the system.\n            If the problem persists, contact your contracted support provider or visit us online at https://www.dell.com/support\n        "
+    },
+    {
+        "id": "p0-201",
+        "alert_id": "p0-201",
+        "event_id": "EVT-ENVIRONMENT-00040",
+        "status": "active",
+        "class": "Environment",
+        "severity": "CRITICAL",
+        "name": "UnsupportedHardwareConfig",
+        "alert_gen_epoch": 1721653155,
+        "description": "\n        Unsupported virtual machine hardware configuration was detected.  \n        This configuration may cause unexpected behavior.\n    ",
+        "msg": "Unsupported virtual hardware configuration.",
+        "additional_info": "Cause=CPU reservation must be 5970 MHz at least!",
+        "clear_additional_info": "Cause=CPU reservation must be 5970 MHz at least!",
+        "action": "\n        Fix the hardware configuration to resolve the problem.\n        If problem persists, restart the system.\n    "
+    },
+    {
+        "id": "p0-202",
+        "alert_id": "p0-202",
+        "event_id": "EVT-ENVIRONMENT-00040",
+        "status": "active",
+        "class": "Environment",
+        "severity": "CRITICAL",
+        "name": "UnsupportedHardwareConfig",
+        "alert_gen_epoch": 1721653155,
+        "description": "\n        Unsupported virtual machine hardware configuration was detected.  \n        This configuration may cause unexpected behavior.\n    ",
+        "msg": "Unsupported virtual hardware configuration.",
+        "additional_info": "Cause=Memory reservation must be 16384 MB at least!",
+        "clear_additional_info": "Cause=Memory reservation must be 16384 MB at least!",
+        "action": "\n        Fix the hardware configuration to resolve the problem.\n        If problem persists, restart the system.\n    "
+    },
+    {
+        "id": "m0-7",
+        "alert_id": "m0-7",
+        "event_id": "EVT-DDBOOST-00001",
+        "status": "active",
+        "class": "Security",
+        "severity": "ALERT",
+        "name": "DDBoostEncryptionNone",
+        "alert_gen_epoch": 1721652882,
+        "description": "\n        Currently using default authentication mode for DDBoost clients, which does not provide over-the-wire encryption.\n    ",
+        "msg": "Default authentication mode for DDBoost clients does not provide over-the-wire encryption.",
+        "additional_info": null,
+        "clear_additional_info": null,
+        "action": "\n        Set DDBoost authentication mode to a value that supports encryption to follow recommended security best practices.\n    "
+    }
+]

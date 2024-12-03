@@ -1,0 +1,3 @@
+import getinfoPPDM
+
+getinfoPPDM.main()

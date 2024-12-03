@@ -1,39 +1,7 @@
 [
     {
-        "name": "ntp",
-        "status": "DISABLED"
-    },
-    {
-        "name": "snmp",
-        "status": "ENABLED"
-    },
-    {
-        "name": "iscsi",
-        "status": "DISABLED"
-    },
-    {
-        "name": "license-server",
-        "status": "NOT_SET"
-    },
-    {
-        "name": "log",
-        "status": "DISABLED"
-    },
-    {
         "name": "asup",
         "status": "ENABLED"
-    },
-    {
-        "name": "nfs",
-        "status": "ENABLED"
-    },
-    {
-        "name": "filesys",
-        "status": "ENABLED"
-    },
-    {
-        "name": "encryption",
-        "status": "DISABLED"
     },
     {
         "name": "cloud",
@@ -44,19 +12,27 @@
         "status": "ENABLED"
     },
     {
-        "name": "cifs",
+        "name": "encryption",
+        "status": "DISABLED"
+    },
+    {
+        "name": "filesys",
         "status": "ENABLED"
     },
     {
-        "name": "vdisk",
+        "name": "iscsi",
         "status": "DISABLED"
     },
     {
-        "name": "vtl",
+        "name": "nfs",
+        "status": "ENABLED"
+    },
+    {
+        "name": "ntp",
         "status": "DISABLED"
     },
     {
-        "name": "replication",
+        "name": "snmp",
         "status": "ENABLED"
     }
 ]

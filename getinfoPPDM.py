@@ -233,10 +233,10 @@ def main():
             encrypted_password = instance_info["encrypted_password"]
             print(f'{instance} {username} {encrypted_password}')
             # Obtener la ruta específica del archivo de certificado
-            cert_relative_path = instance_info["certFile"]
-            cert_file = os.path.join(base_path, cert_relative_path)            
 
             if system == "PPDM":
+                cert_relative_path = instance_info["certFile"]
+                cert_file = os.path.join(base_path, cert_relative_path)            
                 #cert_relative_path = config['systems']['PPDM']['instances']['cert']
                 #cert_file = os.path.join(base_path, cert_relative_path)
                 print(cert_file)

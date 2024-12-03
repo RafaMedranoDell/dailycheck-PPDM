@@ -56,7 +56,7 @@ def process_health(df, system, instance, config, csvPath):
     # Rellenar los valores NaN con los valores correspondientes en 'Score' y 'Issues'
     df_health['Score'] = df_health['Score_grouped'].fillna(df_health['Score_base']).astype(int)
     df_health['Issues'] = df_health['Issues_grouped'].fillna(df_health['Issues_base']).astype(int)
-    df_health = df_health[['healthCategory', 'Score', 'Issues']]
+    df_health = df_health[['healthCategory', 'Issues', 'Score']]
 
     # Renombrar la columna 'healthCategory' a 'Health'
     df_health = df_health.rename(columns={'healthCategory': 'CATEGORY'})
@@ -261,7 +261,8 @@ def process_activities_no_ok(df, system, instance, config, csvPath):
         'category', 
         'protectionPolicy.name', 
         'result.status', 
-        'result.error.code', 
+        'result.error.code',
+        'activityInitiatedType', 
         'host.name', 
         'asset.name', 
         'result.error.reason', 
@@ -298,6 +299,7 @@ def process_activities_no_ok(df, system, instance, config, csvPath):
         'protectionPolicy.name', 
         'result.status', 
         'result.error.code', 
+        'activityInitiatedType',
         'occurrence',
         'host.name', 
         'asset.name', 
