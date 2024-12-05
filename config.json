@@ -2,6 +2,7 @@
     "basePath": "C:\\github\\dailycheck-PPDM",
     "jsonPath": "jsonFiles",
     "csvPath": "csvFiles",
+    
     "customer": {
         "name": "HDV",
         "smtpServer": "esa-relay.rsvgnw.local",
@@ -20,9 +21,9 @@
                     "storageSystems": "storage_systems.json"
                 },
                 "csv": {
-                    "dashboardHealh": "Dashboard-Health.csv",
-                    "healthEvents": "Health_events.csv",
-                    "healthSystem": "health_system.csv",
+                    "healthSummary": "health_summary.csv",
+                    "healthEvents": "health_events.csv",
+                    "healthSystemStatus": "health_system_status.csv",
                     "dashboardjobgroupActivities": "Dashboard-JobGroupActivities.csv",
                     "dashboardJobGroupRate": "Dashboard-JobGroupRate.csv",
                     "jobErrors": "job_errors.csv",
@@ -43,7 +44,8 @@
                 {
                     "hostname": "192.168.1.15",
                     "username": "DCOapi",
-                    "password": "Password123!"
+                    "password": "Password123!",
+                    "certFile": "certs\\PPDM_rootca.pem"
                 }
             ]
         },

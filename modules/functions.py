@@ -48,4 +48,5 @@ def save_json(data, system, instance, query_name, base_path):
     output_file = os.path.join(base_path, f"{system}-{instance}-{query_name}")
     with open(output_file, "w") as file:
         json.dump(data, file, indent=4)
-    print(f"Data saved in: {output_file}")
+    print(instance, f": Data saved in: {output_file}")
+

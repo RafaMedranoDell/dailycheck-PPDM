@@ -4,6 +4,7 @@ import json
 import urllib3
 from datetime import datetime, timedelta
 from password_manager import PasswordManager
+import modules.functions as fn
 
 #Definicion de Variables
 config_file = "config_encrypted.json"
@@ -19,7 +20,7 @@ def load_config(config_file):
         return json.load(file)
     
 
-# Funciones para filtrar fecha
+# functions to filter by date
 def get_current_time():
     return datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
 
@@ -41,54 +42,32 @@ def get_filtered_results(url, headers, params, fields, cert_file):
 
         if response_data.status_code != 200:
             print(f"Error: {response_data.status_code}")
-            print(response_data.text)  # Detalles del error
+            print(response_data.text)  # Error Details
             break
 
         if total_pages is None:
             total_pages = response_data_json['page']['totalPages']
             print("TOTAL PAGES: ", total_pages)
         
-        print(f"PAGE NUMBER: {page}")
+        # print(f"PAGE NUMBER: {page}")
 
         content_entries = response_data_json.get('content', [])
-        filtered_results = filter_entries(content_entries, fields)
+        filtered_results = fn.filter_entries(content_entries, fields)
         all_filtered_results.extend(filtered_results)
 
-        page += 1  # Incrementar la pgina para la siguiente iteracin
+        page += 1  # Increase page for the next iteration
 
     return all_filtered_results
 
 
-def get_value_from_nested_keys(data, keys):
-    for key in keys:
-        if not isinstance(data, dict):
-            return None
-        data = data.get(key)
-    return data
-
-
-def filter_entries(entries, fields):
-    filtered_results = []
-    for entry in entries:
-        filtered_entry = {}
-        for field in fields:
-            keys = field.split('.')
-            value = get_value_from_nested_keys(entry, keys)
-            filtered_entry[field] = value
-        filtered_results.append(filtered_entry)
-    return filtered_results
-
-
-##### LLAMADAS PPDM ######
-
-#Funcion para obtener el token
+#Funcion to obtain the access token
 def get_token_PPDM(instance, username, encrypted_password, cert_file):
     url = f'https://{instance}:8443/api/v2/login'
     headers = {
         'Content-Type': 'application/json'
     }
 
-    # Crear instancia de PasswordManager y desencriptar la contraseña
+    # create instance of PasswordManager and decrypt password
     password_manager = PasswordManager()
     password = password_manager.decrypt_password(encrypted_password)
 
@@ -97,7 +76,6 @@ def get_token_PPDM(instance, username, encrypted_password, cert_file):
         "password": password
     }
 
-    print("DENTRO DE FUNCION GET_TOKEN: ", instance, cert_file)
     response = requests.post(url, headers=headers, data=json.dumps(data), verify=cert_file)
 
     if response.status_code == 200:
@@ -110,6 +88,49 @@ def get_token_PPDM(instance, username, encrypted_password, cert_file):
     return None, None
 
 
+# get health issues of the system
+def get_health_issues(instance,access_token, cert_file):
+    url = f'https://{instance}:8443/api/v2/system-health-issues'
+    headers = {
+        'Authorization': access_token
+    }
+    params = {}  
+    fields = [
+        "healthCategory",
+        "severity",
+        "scoreDeduction",
+        "componentType",
+        "componentName",
+        "messageID",
+        "detailedDescription",
+        "responseAction"
+    ]
+    return get_filtered_results(url, headers, params, fields, cert_file)
+
+
+#get list of activities of type "job_group"
+def get_job_group_activities(instance, access_token, cert_file, today, twenty_four_hours_ago):
+    url = f'https://{instance}:8443/api/v2/activities'
+    headers = {
+        'Authorization': access_token
+    }
+    filter_expression = (
+        f'createTime ge "{twenty_four_hours_ago}" and createTime lt "{today}" and classType eq "JOB_GROUP"'
+    )
+    params = {
+        'filter': filter_expression
+    }
+    fields = [
+        "category",
+        "classType",
+        "result.status",
+        "createTime",
+        "endTime"
+    ]
+    return get_filtered_results(url, headers, params, fields, cert_file)
+
+
+# get list of activities with 'status' other than OK and 'protectionPolicy' and 'result.error.code' other than null
 def get_activities_not_ok(instance, access_token, cert_file, today, twenty_four_hours_ago):
     url = f'https://{instance}:8443/api/v2/activities'
     headers = {
@@ -147,53 +168,13 @@ def get_activities_not_ok(instance, access_token, cert_file, today, twenty_four_
     return get_filtered_results(url, headers, params, fields, cert_file)
 
 
-def get_job_group_activities(instance, access_token, cert_file, today, twenty_four_hours_ago):
-    url = f'https://{instance}:8443/api/v2/activities'
-    headers = {
-        'Authorization': access_token
-    }
-    filter_expression = (
-        f'createTime ge "{twenty_four_hours_ago}" and createTime lt "{today}" and classType eq "JOB_GROUP"'
-    )
-    params = {
-        'filter': filter_expression
-    }
-    fields = [
-        "category",
-        "classType",
-        "result.status",
-        "createTime",
-        "endTime"
-    ]
-    return get_filtered_results(url, headers, params, fields, cert_file)
-
-
-def get_health_issues(instance,access_token, cert_file):
-    url = f'https://{instance}:8443/api/v2/system-health-issues'
-    headers = {
-        'Authorization': access_token
-    }
-    params = {}  # No especificaste filtros, dejando vaco
-    fields = [
-        "healthCategory",
-        "severity",
-        "scoreDeduction",
-        "componentType",
-        "componentName",
-        "messageID",
-        "detailedDescription",
-        "responseAction"
-    ]
-    return get_filtered_results(url, headers, params, fields, cert_file)
-
-
-
+# get storage systems info
 def get_storage_systems(instance,access_token, cert_file):
     url = f'https://{instance}:8443/api/v2/storage-systems'
     headers = {
         'Authorization': access_token
     }
-    params = {}  # No especificaste filtros, dejando vaco
+    params = {}  
     fields = [
         "type",
         "name",
@@ -204,47 +185,32 @@ def get_storage_systems(instance,access_token, cert_file):
     return get_filtered_results(url, headers, params, fields, cert_file)
 
 
-def save_results_to_json(filename, data):
-    with open(filename, 'w') as f:
-        json.dump(data, f, indent=4)
-
-
-# Guardar los datos en un archivo JSON
-def save_json(data, system, instance, query_name, base_path):
-    output_file = os.path.join(base_path, f"{system}-{instance}-{query_name}")
-    with open(output_file, "w") as file:
-        json.dump(data, file, indent=4)
-    print(f"Datos guardados en: {output_file}")
-
-
 def main():
-    config = load_config(config_file)
-    base_path = config["basePath"]  # Obtener la ruta base desde el archivo de configuración
+    config = fn.load_json_file(config_file)
+    base_path = config["basePath"]  # get the basePath from the config file
     json_relative_path = config["jsonPath"]
     jsonPath = os.path.join(base_path, json_relative_path)
-    print(jsonPath)
 
     for system, system_data in config["systems"].items():
-        json_files = system_data["files"]["json"]  # Obtener los nombres de los archivos JSON del sistema
+        json_files = system_data["files"]["json"]  # get the names of the JSON files
         for instance_info in system_data["instances"]:
             instance = instance_info["hostname"]
             username = instance_info["username"]
-            # Cambiar password por encrypted_password
             encrypted_password = instance_info["encrypted_password"]
-            print(f'{instance} {username} {encrypted_password}')
-            # Obtener la ruta específica del archivo de certificado
 
             if system == "PPDM":
+                print("------------------------")
+                print("PROCESANDO SISTEMA ", system)
+                print("------------------------")
+
+                print("------------------------")
+                print("PROCESANDO", instance)
+                print("------------------------")
                 cert_relative_path = instance_info["certFile"]
                 cert_file = os.path.join(base_path, cert_relative_path)            
-                #cert_relative_path = config['systems']['PPDM']['instances']['cert']
-                #cert_file = os.path.join(base_path, cert_relative_path)
-                print(cert_file)
-                # Obtener token de autenticación
-                access_token, _ = get_token_PPDM(instance, username, encrypted_password, cert_file)
-                print(system)
-                print(system, instance, access_token)
-                print(cert_file)
+
+                # get authentication token
+                access_token, _ = get_token_PPDM(instance, username, encrypted_password, cert_file)            
 
                 if not access_token:
                     print(f"Error: no se pudo obtener el token para {instance}.")
@@ -253,21 +219,21 @@ def main():
                 today = get_current_time()
                 twenty_four_hours_ago = get_24_hours_ago()
 
-                print("Fetching health issues...")                
+                print(instance, ": Fetching health issues...")                
                 data = get_health_issues(instance, access_token, cert_file)
-                save_json(data, system, instance, json_files["systemHealthIssues"], jsonPath)
+                fn.save_json(data, system, instance, json_files["systemHealthIssues"], jsonPath)
 
-                print("Fetching job group activities...")
+                print(instance, ": Fetching job group activities...")
                 data = get_job_group_activities(instance, access_token, cert_file, today, twenty_four_hours_ago)
-                save_json(data, system, instance, json_files["jobGroupActivitiesSummary"], jsonPath)
+                fn.save_json(data, system, instance, json_files["jobGroupActivitiesSummary"], jsonPath)
 
-                print("Fetching activities that are not OK...")
+                print(instance, ": Fetching activities that are not OK...")
                 data = get_activities_not_ok(instance, access_token, cert_file, today, twenty_four_hours_ago)
-                save_json(data, system, instance, json_files["activitiesNotOK"], jsonPath)
+                fn.save_json(data, system, instance, json_files["activitiesNotOK"], jsonPath)
 
-                print("Fetching storage systems...")
+                print(instance, ": Fetching storage systems...")
                 data = get_storage_systems(instance, access_token, cert_file)
-                save_json(data, system, instance, json_files["storageSystems"], jsonPath)
+                fn.save_json(data, system, instance, json_files["storageSystems"], jsonPath)
 
     
 if __name__ == "__main__":

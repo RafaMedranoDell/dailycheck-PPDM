@@ -20,9 +20,9 @@
                     "storageSystems": "storage_systems.json"
                 },
                 "csv": {
-                    "dashboardHealh": "Dashboard-Health.csv",
-                    "healthEvents": "Health_events.csv",
-                    "healthSystem": "health_system.csv",
+                    "dashboardHealh": "health_summary.csv",
+                    "healthEvents": "health_events.csv",
+                    "healthSystem": "health_system_status.csv",
                     "dashboardjobgroupActivities": "Dashboard-JobGroupActivities.csv",
                     "dashboardJobGroupRate": "Dashboard-JobGroupRate.csv",
                     "jobErrors": "job_errors.csv",

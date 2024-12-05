@@ -3,1162 +3,840 @@
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-02T18:25:09.603Z",
-        "endTime": "2024-12-02T18:25:38.074Z"
+        "createTime": "2024-12-04T16:02:38.718Z",
+        "endTime": "2024-12-04T16:02:44.940Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-02T16:57:54.488Z",
-        "endTime": "2024-12-02T16:58:08.088Z"
+        "createTime": "2024-12-04T16:04:29.021Z",
+        "endTime": "2024-12-04T16:04:44.939Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-02T17:16:58.196Z",
-        "endTime": "2024-12-02T17:17:08.084Z"
+        "createTime": "2024-12-04T16:04:27.623Z",
+        "endTime": "2024-12-04T16:04:44.939Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-02T17:16:44.199Z",
-        "endTime": "2024-12-02T17:17:08.085Z"
+        "createTime": "2024-12-04T16:12:41.821Z",
+        "endTime": "2024-12-04T16:13:14.940Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-02T17:16:50.126Z",
-        "endTime": "2024-12-02T17:17:08.084Z"
+        "createTime": "2024-12-04T16:12:41.589Z",
+        "endTime": "2024-12-04T16:13:14.941Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T16:21:02.618Z",
+        "endTime": "2024-12-04T16:21:14.949Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T16:21:29.040Z",
+        "endTime": "2024-12-04T16:21:44.941Z"
     },
     {
         "category": "DISASTER_RECOVERY",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T16:28:00.129Z",
+        "endTime": "2024-12-04T16:30:14.939Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T16:36:42.608Z",
+        "endTime": "2024-12-04T16:36:44.939Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T17:10:45.865Z",
+        "endTime": "2024-12-04T17:11:14.937Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T17:12:38.383Z",
+        "endTime": "2024-12-04T17:12:44.940Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T17:12:37.334Z",
+        "endTime": "2024-12-04T17:12:44.940Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T17:12:36.911Z",
+        "endTime": "2024-12-04T17:12:44.941Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T17:12:42.126Z",
+        "endTime": "2024-12-04T17:13:14.940Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T17:12:42.395Z",
+        "endTime": "2024-12-04T17:13:14.940Z"
+    },
+    {
+        "category": "DISASTER_RECOVERY",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T17:28:00.122Z",
+        "endTime": "2024-12-04T17:30:14.945Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T18:12:42.673Z",
+        "endTime": "2024-12-04T18:13:14.939Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T18:12:42.918Z",
+        "endTime": "2024-12-04T18:13:14.940Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T18:20:47.051Z",
+        "endTime": "2024-12-04T18:21:14.940Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T18:20:46.845Z",
+        "endTime": "2024-12-04T18:21:14.940Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T18:20:47.253Z",
+        "endTime": "2024-12-04T18:21:14.940Z"
+    },
+    {
+        "category": "DISASTER_RECOVERY",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T18:28:00.124Z",
+        "endTime": "2024-12-04T18:29:44.939Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T18:35:52.524Z",
+        "endTime": "2024-12-04T18:36:14.939Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T19:09:55.869Z",
+        "endTime": "2024-12-04T19:10:14.942Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T19:11:55.137Z",
+        "endTime": "2024-12-04T19:12:14.947Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T19:12:43.450Z",
+        "endTime": "2024-12-04T19:13:14.944Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T19:12:43.192Z",
+        "endTime": "2024-12-04T19:13:14.945Z"
+    },
+    {
+        "category": "DISASTER_RECOVERY",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T19:28:00.126Z",
+        "endTime": "2024-12-04T19:29:14.958Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T19:28:55.111Z",
+        "endTime": "2024-12-04T19:29:14.947Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T19:28:55.364Z",
+        "endTime": "2024-12-04T19:29:14.947Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T20:12:43.738Z",
+        "endTime": "2024-12-04T20:13:14.943Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T20:12:43.973Z",
+        "endTime": "2024-12-04T20:13:14.943Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T20:20:05.688Z",
+        "endTime": "2024-12-04T20:20:14.946Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T20:20:02.554Z",
+        "endTime": "2024-12-04T20:20:14.946Z"
+    },
+    {
+        "category": "DISASTER_RECOVERY",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T20:28:00.116Z",
+        "endTime": "2024-12-04T20:29:44.937Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T20:35:02.575Z",
+        "endTime": "2024-12-04T20:35:14.942Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T20:37:05.188Z",
+        "endTime": "2024-12-04T20:37:14.939Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T21:09:05.980Z",
+        "endTime": "2024-12-04T21:09:14.941Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T21:12:44.446Z",
+        "endTime": "2024-12-04T21:13:14.942Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T21:12:44.228Z",
+        "endTime": "2024-12-04T21:13:14.943Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T21:28:13.825Z",
+        "endTime": "2024-12-04T21:28:14.978Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T21:28:15.714Z",
+        "endTime": "2024-12-04T21:28:44.943Z"
+    },
+    {
+        "category": "DISASTER_RECOVERY",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T21:28:00.115Z",
+        "endTime": "2024-12-04T21:29:44.938Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T21:43:09.529Z",
+        "endTime": "2024-12-04T21:43:14.947Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T21:45:15.047Z",
+        "endTime": "2024-12-04T21:45:44.936Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T22:12:44.700Z",
+        "endTime": "2024-12-04T22:13:14.943Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T22:12:44.928Z",
+        "endTime": "2024-12-04T22:13:14.944Z"
+    },
+    {
+        "category": "DISASTER_RECOVERY",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T22:28:00.109Z",
+        "endTime": "2024-12-04T22:29:44.938Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T22:36:24.414Z",
+        "endTime": "2024-12-04T22:36:44.945Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T22:36:25.601Z",
+        "endTime": "2024-12-04T22:36:44.948Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T22:53:24.894Z",
+        "endTime": "2024-12-04T22:53:44.943Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T23:12:45.216Z",
+        "endTime": "2024-12-04T23:13:14.938Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-04T23:12:45.482Z",
+        "endTime": "2024-12-04T23:13:14.939Z"
+    },
+    {
+        "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "FAILED",
-        "createTime": "2024-12-02T17:28:00.477Z",
-        "endTime": "2024-12-02T17:30:08.063Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T17:31:58.866Z",
-        "endTime": "2024-12-02T17:32:08.179Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T17:41:52.513Z",
-        "endTime": "2024-12-02T17:42:08.143Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T17:41:52.874Z",
-        "endTime": "2024-12-02T17:42:08.143Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T18:23:05.546Z",
-        "endTime": "2024-12-02T18:23:08.086Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T17:49:01.472Z",
-        "endTime": "2024-12-02T17:49:08.089Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T18:24:54.481Z",
-        "endTime": "2024-12-02T18:25:08.105Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T18:25:02.096Z",
-        "endTime": "2024-12-02T18:25:08.104Z"
-    },
-    {
-        "category": "DISASTER_RECOVERY",
-        "classType": "JOB_GROUP",
-        "result.status": "FAILED",
-        "createTime": "2024-12-02T18:28:00.235Z",
-        "endTime": "2024-12-02T18:30:08.146Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T18:41:53.451Z",
-        "endTime": "2024-12-02T18:42:08.087Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T18:41:53.833Z",
-        "endTime": "2024-12-02T18:42:08.087Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T18:57:09.695Z",
-        "endTime": "2024-12-02T18:57:38.109Z"
-    },
-    {
-        "category": "DISASTER_RECOVERY",
-        "classType": "JOB_GROUP",
-        "result.status": "FAILED",
-        "createTime": "2024-12-02T19:28:00.309Z",
-        "endTime": "2024-12-02T19:29:08.055Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T19:33:05.531Z",
-        "endTime": "2024-12-02T19:33:08.111Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T19:33:11.221Z",
-        "endTime": "2024-12-02T19:33:38.073Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T19:33:19.765Z",
-        "endTime": "2024-12-02T19:33:38.073Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T19:41:54.637Z",
-        "endTime": "2024-12-02T19:42:38.073Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T19:41:54.982Z",
-        "endTime": "2024-12-02T19:42:38.073Z"
-    },
-    {
-        "category": "DISASTER_RECOVERY",
-        "classType": "JOB_GROUP",
-        "result.status": "FAILED",
-        "createTime": "2024-12-02T20:28:00.694Z",
-        "endTime": "2024-12-02T20:30:08.064Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T20:41:55.775Z",
-        "endTime": "2024-12-02T20:42:38.060Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T20:41:55.460Z",
-        "endTime": "2024-12-02T20:42:08.060Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T20:41:28.047Z",
-        "endTime": "2024-12-02T20:41:38.083Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T20:41:17.341Z",
-        "endTime": "2024-12-02T20:41:38.083Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T20:41:20.235Z",
-        "endTime": "2024-12-02T20:41:38.083Z"
-    },
-    {
-        "category": "DISASTER_RECOVERY",
-        "classType": "JOB_GROUP",
-        "result.status": "FAILED",
-        "createTime": "2024-12-02T21:28:00.235Z",
-        "endTime": "2024-12-02T21:29:38.053Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T21:41:56.311Z",
-        "endTime": "2024-12-02T21:42:38.062Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T21:41:56.636Z",
-        "endTime": "2024-12-02T21:42:38.063Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T21:49:36.885Z",
-        "endTime": "2024-12-02T21:49:38.131Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T21:49:27.116Z",
-        "endTime": "2024-12-02T21:49:38.131Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T21:49:31.104Z",
-        "endTime": "2024-12-02T21:49:38.131Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T22:04:22.569Z",
-        "endTime": "2024-12-02T22:04:38.079Z"
-    },
-    {
-        "category": "DISASTER_RECOVERY",
-        "classType": "JOB_GROUP",
-        "result.status": "FAILED",
-        "createTime": "2024-12-02T22:28:00.261Z",
-        "endTime": "2024-12-02T22:30:08.076Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T22:38:26.588Z",
-        "endTime": "2024-12-02T22:38:38.090Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T22:40:33.502Z",
-        "endTime": "2024-12-02T22:40:38.068Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T22:41:57.178Z",
-        "endTime": "2024-12-02T22:42:38.192Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T22:41:57.485Z",
-        "endTime": "2024-12-02T22:42:38.192Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T22:57:47.289Z",
-        "endTime": "2024-12-02T22:58:08.096Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T22:57:40.337Z",
-        "endTime": "2024-12-02T22:58:08.096Z"
-    },
-    {
-        "category": "DISASTER_RECOVERY",
-        "classType": "JOB_GROUP",
-        "result.status": "FAILED",
-        "createTime": "2024-12-02T23:28:00.350Z",
-        "endTime": "2024-12-02T23:29:38.062Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T23:29:31.567Z",
-        "endTime": "2024-12-02T23:29:38.056Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T23:41:57.949Z",
-        "endTime": "2024-12-02T23:42:38.065Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T23:41:58.277Z",
-        "endTime": "2024-12-02T23:42:38.065Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T23:48:47.631Z",
-        "endTime": "2024-12-02T23:49:08.102Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T23:48:43.999Z",
-        "endTime": "2024-12-02T23:49:08.103Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-02T23:48:54.570Z",
-        "endTime": "2024-12-02T23:49:08.102Z"
-    },
-    {
-        "category": "DELETE",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T00:00:01.527Z",
-        "endTime": "2024-12-03T00:00:38.192Z"
-    },
-    {
-        "category": "DELETE",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T00:00:02.836Z",
-        "endTime": "2024-12-03T00:01:38.099Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T00:03:35.826Z",
-        "endTime": "2024-12-03T00:03:38.062Z"
-    },
-    {
-        "category": "DISASTER_RECOVERY",
-        "classType": "JOB_GROUP",
-        "result.status": "FAILED",
-        "createTime": "2024-12-03T00:28:00.405Z",
-        "endTime": "2024-12-03T00:30:08.062Z"
-    },
-    {
-        "category": "DISASTER_RECOVERY",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T00:29:55.045Z",
-        "endTime": "2024-12-03T00:31:08.050Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T00:41:58.750Z",
-        "endTime": "2024-12-03T00:42:38.067Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T00:41:59.109Z",
-        "endTime": "2024-12-03T00:42:38.067Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T00:56:56.362Z",
-        "endTime": "2024-12-03T00:57:08.092Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T00:56:52.838Z",
-        "endTime": "2024-12-03T00:57:08.092Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T00:57:03.524Z",
-        "endTime": "2024-12-03T00:57:08.092Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T01:11:43.721Z",
-        "endTime": "2024-12-03T01:12:08.078Z"
-    },
-    {
-        "category": "DISASTER_RECOVERY",
-        "classType": "JOB_GROUP",
-        "result.status": "FAILED",
-        "createTime": "2024-12-03T01:28:00.217Z",
-        "endTime": "2024-12-03T01:30:08.057Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T01:41:59.618Z",
-        "endTime": "2024-12-03T01:42:38.064Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T01:41:59.944Z",
-        "endTime": "2024-12-03T01:42:38.064Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T01:45:46.334Z",
-        "endTime": "2024-12-03T01:46:08.054Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T02:05:03.584Z",
-        "endTime": "2024-12-03T02:05:08.132Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T02:05:08.163Z",
-        "endTime": "2024-12-03T02:05:38.077Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T02:05:14.390Z",
-        "endTime": "2024-12-03T02:05:38.080Z"
-    },
-    {
-        "category": "DISASTER_RECOVERY",
-        "classType": "JOB_GROUP",
-        "result.status": "FAILED",
-        "createTime": "2024-12-03T02:28:00.356Z",
-        "endTime": "2024-12-03T02:29:38.197Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T02:36:49.676Z",
-        "endTime": "2024-12-03T02:37:08.103Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T02:42:00.411Z",
-        "endTime": "2024-12-03T02:42:38.187Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T02:42:00.739Z",
-        "endTime": "2024-12-03T02:42:38.187Z"
+        "createTime": "2024-12-05T07:51:56.658Z",
+        "endTime": "2024-12-05T07:52:26.762Z"
     },
     {
         "category": "SYSTEM",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T03:00:00.429Z",
-        "endTime": "2024-12-03T03:00:38.070Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T03:10:53.055Z",
-        "endTime": "2024-12-03T03:11:08.091Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T03:13:18.621Z",
-        "endTime": "2024-12-03T03:13:38.094Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T03:13:23.976Z",
-        "endTime": "2024-12-03T03:13:38.093Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T03:13:13.660Z",
-        "endTime": "2024-12-03T03:13:38.094Z"
-    },
-    {
-        "category": "DISASTER_RECOVERY",
-        "classType": "JOB_GROUP",
-        "result.status": "FAILED",
-        "createTime": "2024-12-03T03:28:00.267Z",
-        "endTime": "2024-12-03T03:29:38.067Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "FAILED",
-        "createTime": "2024-12-03T07:29:28.814Z",
-        "endTime": "2024-12-03T07:30:19.186Z"
+        "createTime": "2024-12-05T07:51:53.504Z",
+        "endTime": "2024-12-05T07:52:26.764Z"
     },
     {
         "category": "DELETE",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T07:31:05.428Z",
-        "endTime": "2024-12-03T07:31:49.175Z"
+        "createTime": "2024-12-05T07:52:30.089Z",
+        "endTime": "2024-12-05T07:53:56.142Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T07:31:30.584Z",
-        "endTime": "2024-12-03T07:32:19.168Z"
-    },
-    {
-        "category": "DISASTER_RECOVERY",
-        "classType": "JOB_GROUP",
-        "result.status": "FAILED",
-        "createTime": "2024-12-03T07:29:27.700Z",
-        "endTime": "2024-12-03T07:34:49.141Z"
-    },
-    {
-        "category": "DISASTER_RECOVERY",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T07:34:23.481Z",
-        "endTime": "2024-12-03T07:35:49.173Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T07:40:30.142Z",
-        "endTime": "2024-12-03T07:40:49.211Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T07:40:24.664Z",
-        "endTime": "2024-12-03T07:40:49.213Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T07:40:21.650Z",
-        "endTime": "2024-12-03T07:40:49.145Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T07:40:25.482Z",
-        "endTime": "2024-12-03T07:40:49.220Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T07:40:31.023Z",
-        "endTime": "2024-12-03T07:40:49.357Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T07:39:24.071Z",
-        "endTime": "2024-12-03T07:41:19.145Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T07:39:20.841Z",
-        "endTime": "2024-12-03T07:41:19.145Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T07:40:42.837Z",
-        "endTime": "2024-12-03T07:42:19.141Z"
-    },
-    {
-        "category": "DELETE",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T07:31:07.595Z",
-        "endTime": "2024-12-03T07:42:19.142Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T07:40:44.462Z",
-        "endTime": "2024-12-03T07:42:19.242Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T07:40:26.048Z",
-        "endTime": "2024-12-03T07:42:19.142Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T07:40:39.173Z",
-        "endTime": "2024-12-03T07:42:49.139Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T07:40:44.178Z",
-        "endTime": "2024-12-03T07:43:19.138Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T07:40:43.627Z",
-        "endTime": "2024-12-03T07:43:19.138Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T07:56:15.098Z",
-        "endTime": "2024-12-03T07:56:19.139Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T08:28:39.713Z",
-        "endTime": "2024-12-03T08:29:19.135Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T08:28:39.314Z",
-        "endTime": "2024-12-03T08:29:19.136Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T08:31:38.444Z",
-        "endTime": "2024-12-03T08:32:49.148Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T08:30:17.296Z",
-        "endTime": "2024-12-03T08:30:19.130Z"
+        "createTime": "2024-12-05T07:54:00.006Z",
+        "endTime": "2024-12-05T07:54:26.156Z"
     },
     {
         "category": "DISASTER_RECOVERY",
         "classType": "JOB_GROUP",
         "result.status": "FAILED",
-        "createTime": "2024-12-03T08:28:00.164Z",
-        "endTime": "2024-12-03T08:30:19.131Z"
+        "createTime": "2024-12-05T07:51:53.503Z",
+        "endTime": "2024-12-05T07:58:26.080Z"
+    },
+    {
+        "category": "DISASTER_RECOVERY",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-05T07:58:01.832Z",
+        "endTime": "2024-12-05T07:59:26.072Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T08:31:28.855Z",
-        "endTime": "2024-12-03T08:31:49.127Z"
+        "createTime": "2024-12-05T08:01:39.341Z",
+        "endTime": "2024-12-05T08:01:56.289Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T08:48:40.693Z",
-        "endTime": "2024-12-03T08:48:49.132Z"
+        "createTime": "2024-12-05T08:01:33.528Z",
+        "endTime": "2024-12-05T08:01:56.097Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T08:48:39.463Z",
-        "endTime": "2024-12-03T08:48:49.132Z"
+        "createTime": "2024-12-05T08:01:31.988Z",
+        "endTime": "2024-12-05T08:01:56.105Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T09:28:40.511Z",
-        "endTime": "2024-12-03T09:29:19.135Z"
+        "createTime": "2024-12-05T08:00:33.383Z",
+        "endTime": "2024-12-05T08:02:26.041Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T09:28:40.196Z",
-        "endTime": "2024-12-03T09:29:19.135Z"
+        "createTime": "2024-12-05T08:00:46.748Z",
+        "endTime": "2024-12-05T08:02:26.039Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-05T08:01:37.474Z",
+        "endTime": "2024-12-05T08:02:26.041Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-05T08:01:42.899Z",
+        "endTime": "2024-12-05T08:02:26.158Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-05T08:01:50.004Z",
+        "endTime": "2024-12-05T08:03:26.338Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-05T08:01:35.998Z",
+        "endTime": "2024-12-05T08:03:26.335Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-05T08:01:55.497Z",
+        "endTime": "2024-12-05T08:03:56.129Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-05T08:02:00.002Z",
+        "endTime": "2024-12-05T08:04:26.042Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-05T08:01:53.310Z",
+        "endTime": "2024-12-05T08:04:56.051Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-05T08:01:56.947Z",
+        "endTime": "2024-12-05T08:04:56.051Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-05T08:17:24.103Z",
+        "endTime": "2024-12-05T08:17:26.054Z"
     },
     {
         "category": "DISASTER_RECOVERY",
         "classType": "JOB_GROUP",
         "result.status": "FAILED",
-        "createTime": "2024-12-03T09:28:00.138Z",
-        "endTime": "2024-12-03T09:29:49.129Z"
+        "createTime": "2024-12-05T08:28:01.602Z",
+        "endTime": "2024-12-05T08:30:26.050Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T09:38:23.520Z",
-        "endTime": "2024-12-03T09:38:49.127Z"
+        "createTime": "2024-12-05T08:50:40.905Z",
+        "endTime": "2024-12-05T08:51:26.047Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T10:12:26.648Z",
-        "endTime": "2024-12-03T10:12:49.127Z"
+        "createTime": "2024-12-05T08:50:41.556Z",
+        "endTime": "2024-12-05T08:51:26.045Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T09:39:47.155Z",
-        "endTime": "2024-12-03T09:39:49.130Z"
+        "createTime": "2024-12-05T08:52:39.332Z",
+        "endTime": "2024-12-05T08:52:56.046Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T09:39:45.405Z",
-        "endTime": "2024-12-03T09:39:49.130Z"
+        "createTime": "2024-12-05T09:09:49.981Z",
+        "endTime": "2024-12-05T09:09:56.060Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T09:39:39.329Z",
-        "endTime": "2024-12-03T09:39:49.130Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T10:28:41.476Z",
-        "endTime": "2024-12-03T10:29:19.136Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T10:28:40.974Z",
-        "endTime": "2024-12-03T10:29:19.136Z"
+        "createTime": "2024-12-05T09:09:53.424Z",
+        "endTime": "2024-12-05T09:09:56.060Z"
     },
     {
         "category": "DISASTER_RECOVERY",
         "classType": "JOB_GROUP",
         "result.status": "FAILED",
-        "createTime": "2024-12-03T10:28:00.134Z",
-        "endTime": "2024-12-03T10:30:19.129Z"
+        "createTime": "2024-12-05T09:28:00.539Z",
+        "endTime": "2024-12-05T09:29:56.038Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T10:47:47.737Z",
-        "endTime": "2024-12-03T10:47:49.129Z"
+        "createTime": "2024-12-05T09:50:42.349Z",
+        "endTime": "2024-12-05T09:51:26.034Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T10:47:55.789Z",
-        "endTime": "2024-12-03T10:48:19.126Z"
+        "createTime": "2024-12-05T09:50:42.869Z",
+        "endTime": "2024-12-05T09:50:56.062Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T10:47:57.891Z",
-        "endTime": "2024-12-03T10:48:19.128Z"
-    },
-    {
-        "category": "CONFIG",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T16:47:28.009Z",
-        "endTime": "2024-12-03T16:48:19.230Z"
-    },
-    {
-        "category": "PROTECT",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T16:47:17.565Z",
-        "endTime": "2024-12-03T16:49:49.149Z"
-    },
-    {
-        "category": "CONFIG",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T16:47:51.961Z",
-        "endTime": "2024-12-03T16:50:19.125Z"
-    },
-    {
-        "category": "PROTECT",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T16:48:06.639Z",
-        "endTime": "2024-12-03T16:50:19.126Z"
+        "createTime": "2024-12-05T10:00:50.708Z",
+        "endTime": "2024-12-05T10:00:56.072Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T11:28:41.760Z",
-        "endTime": "2024-12-03T11:29:19.138Z"
+        "createTime": "2024-12-05T10:00:57.015Z",
+        "endTime": "2024-12-05T10:01:26.034Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T11:28:42.029Z",
-        "endTime": "2024-12-03T11:29:19.139Z"
+        "createTime": "2024-12-05T10:01:01.214Z",
+        "endTime": "2024-12-05T10:01:26.034Z"
     },
     {
         "category": "DISASTER_RECOVERY",
         "classType": "JOB_GROUP",
         "result.status": "FAILED",
-        "createTime": "2024-12-03T11:28:00.139Z",
-        "endTime": "2024-12-03T11:30:19.129Z"
+        "createTime": "2024-12-05T10:28:00.658Z",
+        "endTime": "2024-12-05T10:29:56.053Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T11:55:58.839Z",
-        "endTime": "2024-12-03T11:56:19.129Z"
+        "createTime": "2024-12-05T10:33:31.639Z",
+        "endTime": "2024-12-05T10:33:56.093Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T11:56:07.684Z",
-        "endTime": "2024-12-03T11:56:19.129Z"
+        "createTime": "2024-12-05T10:50:33.552Z",
+        "endTime": "2024-12-05T10:50:56.083Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T11:56:09.539Z",
-        "endTime": "2024-12-03T11:56:19.127Z"
+        "createTime": "2024-12-05T10:50:43.602Z",
+        "endTime": "2024-12-05T10:51:26.029Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T12:28:42.306Z",
-        "endTime": "2024-12-03T12:29:19.127Z"
+        "createTime": "2024-12-05T10:50:44.057Z",
+        "endTime": "2024-12-05T10:51:26.029Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T12:28:42.531Z",
-        "endTime": "2024-12-03T12:29:19.128Z"
+        "createTime": "2024-12-05T11:09:12.640Z",
+        "endTime": "2024-12-05T11:09:26.070Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-05T11:09:09.719Z",
+        "endTime": "2024-12-05T11:09:26.068Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-05T11:09:01.846Z",
+        "endTime": "2024-12-05T11:09:26.068Z"
     },
     {
         "category": "DISASTER_RECOVERY",
         "classType": "JOB_GROUP",
         "result.status": "FAILED",
-        "createTime": "2024-12-03T12:28:00.129Z",
-        "endTime": "2024-12-03T12:29:49.129Z"
+        "createTime": "2024-12-05T11:28:00.762Z",
+        "endTime": "2024-12-05T11:29:56.032Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T13:04:17.698Z",
-        "endTime": "2024-12-03T13:04:19.126Z"
+        "createTime": "2024-12-05T11:50:44.676Z",
+        "endTime": "2024-12-05T11:51:26.040Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T13:04:09.242Z",
-        "endTime": "2024-12-03T13:04:19.126Z"
+        "createTime": "2024-12-05T11:50:45.164Z",
+        "endTime": "2024-12-05T11:51:26.039Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T13:04:17.813Z",
-        "endTime": "2024-12-03T13:04:19.127Z"
+        "createTime": "2024-12-05T12:17:12.538Z",
+        "endTime": "2024-12-05T12:17:26.133Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T13:28:42.806Z",
-        "endTime": "2024-12-03T13:29:19.157Z"
+        "createTime": "2024-12-05T12:17:22.630Z",
+        "endTime": "2024-12-05T12:17:26.133Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T13:28:43.061Z",
-        "endTime": "2024-12-03T13:29:19.151Z"
+        "createTime": "2024-12-05T12:17:20.291Z",
+        "endTime": "2024-12-05T12:17:26.133Z"
     },
     {
         "category": "DISASTER_RECOVERY",
         "classType": "JOB_GROUP",
         "result.status": "FAILED",
-        "createTime": "2024-12-03T13:28:00.133Z",
-        "endTime": "2024-12-03T13:29:49.133Z"
+        "createTime": "2024-12-05T12:28:00.539Z",
+        "endTime": "2024-12-05T12:29:56.046Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T14:10:41.445Z",
-        "endTime": "2024-12-03T14:10:49.132Z"
+        "createTime": "2024-12-05T12:32:41.846Z",
+        "endTime": "2024-12-05T12:32:56.069Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T14:12:20.061Z",
-        "endTime": "2024-12-03T14:12:49.127Z"
+        "createTime": "2024-12-05T12:50:45.872Z",
+        "endTime": "2024-12-05T12:51:26.079Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T14:12:25.373Z",
-        "endTime": "2024-12-03T14:12:49.127Z"
+        "createTime": "2024-12-05T12:50:46.341Z",
+        "endTime": "2024-12-05T12:51:26.079Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T14:12:25.005Z",
-        "endTime": "2024-12-03T14:12:49.126Z"
+        "createTime": "2024-12-05T13:06:45.032Z",
+        "endTime": "2024-12-05T13:06:56.057Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T14:28:43.725Z",
-        "endTime": "2024-12-03T14:29:19.130Z"
+        "createTime": "2024-12-05T13:25:20.350Z",
+        "endTime": "2024-12-05T13:25:26.054Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T14:28:43.398Z",
-        "endTime": "2024-12-03T14:29:19.130Z"
+        "createTime": "2024-12-05T13:25:30.207Z",
+        "endTime": "2024-12-05T13:25:56.033Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-05T13:25:33.737Z",
+        "endTime": "2024-12-05T13:25:56.033Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-05T13:50:47.131Z",
+        "endTime": "2024-12-05T13:51:26.043Z"
+    },
+    {
+        "category": "DISCOVER",
+        "classType": "JOB_GROUP",
+        "result.status": "OK",
+        "createTime": "2024-12-05T13:50:47.660Z",
+        "endTime": "2024-12-05T13:51:26.042Z"
     },
     {
         "category": "DISASTER_RECOVERY",
         "classType": "JOB_GROUP",
         "result.status": "FAILED",
-        "createTime": "2024-12-03T14:28:00.157Z",
-        "endTime": "2024-12-03T14:29:49.125Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T15:18:48.263Z",
-        "endTime": "2024-12-03T15:18:49.130Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T14:44:44.734Z",
-        "endTime": "2024-12-03T14:44:49.126Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T15:20:35.787Z",
-        "endTime": "2024-12-03T15:20:49.130Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T15:20:35.507Z",
-        "endTime": "2024-12-03T15:20:49.130Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T15:20:30.839Z",
-        "endTime": "2024-12-03T15:20:49.130Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T15:28:44.047Z",
-        "endTime": "2024-12-03T15:29:19.124Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T15:28:44.287Z",
-        "endTime": "2024-12-03T15:29:19.124Z"
+        "createTime": "2024-12-05T13:28:00.576Z",
+        "endTime": "2024-12-05T13:29:56.036Z"
     },
     {
         "category": "DISASTER_RECOVERY",
         "classType": "JOB_GROUP",
         "result.status": "FAILED",
-        "createTime": "2024-12-03T15:28:00.119Z",
-        "endTime": "2024-12-03T15:29:49.135Z"
+        "createTime": "2024-12-05T14:28:00.382Z",
+        "endTime": "2024-12-05T14:30:26.032Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T15:52:52.621Z",
-        "endTime": "2024-12-03T15:53:19.123Z"
+        "createTime": "2024-12-05T14:33:31.595Z",
+        "endTime": "2024-12-05T14:33:56.068Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T16:28:40.391Z",
-        "endTime": "2024-12-03T16:28:49.127Z"
+        "createTime": "2024-12-05T14:33:40.218Z",
+        "endTime": "2024-12-05T14:33:56.068Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T16:28:45.946Z",
-        "endTime": "2024-12-03T16:28:49.181Z"
+        "createTime": "2024-12-05T14:33:43.492Z",
+        "endTime": "2024-12-05T14:33:56.068Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T16:28:45.660Z",
-        "endTime": "2024-12-03T16:28:49.179Z"
+        "createTime": "2024-12-05T14:50:48.332Z",
+        "endTime": "2024-12-05T14:51:26.024Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T16:28:44.784Z",
-        "endTime": "2024-12-03T16:29:19.126Z"
-    },
-    {
-        "category": "DISCOVER",
-        "classType": "JOB_GROUP",
-        "result.status": "OK",
-        "createTime": "2024-12-03T16:28:44.554Z",
-        "endTime": "2024-12-03T16:29:19.126Z"
+        "createTime": "2024-12-05T14:50:48.786Z",
+        "endTime": "2024-12-05T14:51:26.024Z"
     },
     {
         "category": "DISASTER_RECOVERY",
         "classType": "JOB_GROUP",
         "result.status": "FAILED",
-        "createTime": "2024-12-03T16:28:00.113Z",
-        "endTime": "2024-12-03T16:29:49.130Z"
+        "createTime": "2024-12-05T15:28:00.551Z",
+        "endTime": "2024-12-05T15:29:56.028Z"
     },
     {
         "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T16:43:57.202Z",
-        "endTime": "2024-12-03T16:44:19.127Z"
+        "createTime": "2024-12-05T15:41:41.496Z",
+        "endTime": "2024-12-05T15:41:56.015Z"
     },
     {
-        "category": "CONFIG",
-        "classType": "JOB_GROUP",
-        "result.status": "FAILED",
-        "createTime": "2024-12-03T16:47:07.182Z",
-        "endTime": "2024-12-03T16:47:19.179Z"
-    },
-    {
-        "category": "PROTECT",
-        "classType": "JOB_GROUP",
-        "result.status": "UNKNOWN",
-        "createTime": "2024-12-03T16:47:11.543Z",
-        "endTime": "2024-12-03T16:47:49.154Z"
-    },
-    {
-        "category": "PROTECT",
+        "category": "DISCOVER",
         "classType": "JOB_GROUP",
         "result.status": "OK",
-        "createTime": "2024-12-03T16:48:11.543Z",
-        "endTime": "2024-12-03T16:49:19.189Z"
+        "createTime": "2024-12-05T15:41:50.126Z",
+        "endTime": "2024-12-05T15:41:56.015Z"
     },
     {
-        "category": "PROTECT",
+        "category": "DISCOVER",
         "classType": "JOB_GROUP",
-        "result.status": null,
-        "createTime": "2024-12-03T16:47:34.989Z",
-        "endTime": null
+        "result.status": "OK",
+        "createTime": "2024-12-05T15:41:52.522Z",
+        "endTime": "2024-12-05T15:41:56.015Z"
     }
 ]

@@ -1,22 +1,10 @@
 [
     {
-        "name": "asup",
-        "status": "ENABLED"
-    },
-    {
-        "name": "cloud",
+        "name": "ntp",
         "status": "DISABLED"
     },
     {
-        "name": "ddboost",
-        "status": "ENABLED"
-    },
-    {
-        "name": "encryption",
-        "status": "DISABLED"
-    },
-    {
-        "name": "filesys",
+        "name": "snmp",
         "status": "ENABLED"
     },
     {
@@ -24,15 +12,27 @@
         "status": "DISABLED"
     },
     {
+        "name": "asup",
+        "status": "ENABLED"
+    },
+    {
         "name": "nfs",
         "status": "ENABLED"
     },
     {
-        "name": "ntp",
+        "name": "filesys",
+        "status": "ENABLED"
+    },
+    {
+        "name": "encryption",
         "status": "DISABLED"
     },
     {
-        "name": "snmp",
+        "name": "cloud",
+        "status": "DISABLED"
+    },
+    {
+        "name": "ddboost",
         "status": "ENABLED"
     }
 ]

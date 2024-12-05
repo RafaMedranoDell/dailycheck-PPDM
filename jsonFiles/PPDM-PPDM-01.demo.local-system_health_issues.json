@@ -1,16 +1,6 @@
 [
     {
         "healthCategory": "CONFIGURATION",
-        "severity": "LOW",
-        "scoreDeduction": 2,
-        "componentType": "DATA_MANAGER",
-        "componentName": "Data manager",
-        "messageID": "MON0024",
-        "detailedDescription": "One or more of the assets discovered from the configured asset sources are not assigned to a protection policy.",
-        "responseAction": "Assign the unprotected assets to a new or existing protection policy. To view only the unprotected assets, go to Infrastructure > Assets, click the filter icon in the Protection column, and then select Unprotected."
-    },
-    {
-        "healthCategory": "CONFIGURATION",
         "severity": "MEDIUM",
         "scoreDeduction": 10,
         "componentType": "DATA_MANAGER",
@@ -18,6 +8,16 @@
         "messageID": "MON0021",
         "detailedDescription": "There are no system support options configured for PowerProtect Data Manager customer support.",
         "responseAction": "Follow the procedure in the PowerProtect Data Manager Administration and User Guide to configure one or more system support options."
+    },
+    {
+        "healthCategory": "CONFIGURATION",
+        "severity": "LOW",
+        "scoreDeduction": 2,
+        "componentType": "DATA_MANAGER",
+        "componentName": "Data manager",
+        "messageID": "MON0024",
+        "detailedDescription": "One or more of the assets discovered from the configured asset sources are not assigned to a protection policy.",
+        "responseAction": "Assign the unprotected assets to a new or existing protection policy. To view only the unprotected assets, go to Infrastructure > Assets, click the filter icon in the Protection column, and then select Unprotected."
     },
     {
         "healthCategory": "COMPONENTS",
