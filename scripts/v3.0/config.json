@@ -2,6 +2,7 @@
     "basePath": "C:\\github\\dailycheck-PPDM",
     "jsonPath": "jsonFiles",
     "csvPath": "csvFiles",
+    
     "customer": {
         "name": "HDV",
         "smtpServer": "esa-relay.rsvgnw.local",
@@ -20,16 +21,12 @@
                     "storageSystems": "storage_systems.json"
                 },
                 "csv": {
-                    "dashboardHealh": "health_summary.csv",
+                    "healthSummary": "health_summary.csv",
                     "healthEvents": "health_events.csv",
-                    "healthSystem": "health_system_status.csv",
-                    "dashboardjobgroupActivities": "Dashboard-JobGroupActivities.csv",
-                    "dashboardJobGroupRate": "Dashboard-JobGroupRate.csv",
-                    "jobErrors": "job_errors.csv",
-                    "assetErrors": "asset_errors.csv",
-                    "hostErrors": "host_errors.csv",
-                    "uniqueErrorsNoSkipped": "unique_errors_no_skipped.csv",
-                    "summaryJobsSkipped": "summary_jobs_skipped.csv",
+                    "healthSystemStatus": "health_system_status.csv",                 
+                    "jobgroupSummary": "jobgroup_activities_summary.csv",
+                    "jobgroupRate": "jobgroup_activities_rate.csv",
+                    "activitiesNoOkSummary": "activities_no_ok_summary.csv",
                     "storageSystems": "storage_systems.csv"
                 }
             },
@@ -43,7 +40,8 @@
                 {
                     "hostname": "192.168.1.15",
                     "username": "DCOapi",
-                    "password": "Password123!"
+                    "password": "Password123!",
+                    "certFile": "certs\\PPDM_rootca.pem"
                 }
             ]
         },

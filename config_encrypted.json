@@ -25,11 +25,7 @@
                     "healthSystemStatus": "health_system_status.csv",                 
                     "jobgroupSummary": "jobgroup_activities_summary.csv",
                     "jobgroupRate": "jobgroup_activities_rate.csv",
-                    "jobErrors": "job_errors.csv",
-                    "assetErrors": "asset_errors.csv",
-                    "hostErrors": "host_errors.csv",
-                    "uniqueErrorsNoSkipped": "unique_errors_no_skipped.csv",
-                    "summaryJobsSkipped": "summary_jobs_skipped.csv",
+                    "activitiesNoOkSummary": "activities_no_ok_summary.csv",
                     "storageSystems": "storage_systems.csv"
                 }
             },

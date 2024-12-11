@@ -1,3 +1,4 @@
+import modules.functions as fn
 import pandas as pd
 import json
 import csv
@@ -5,17 +6,8 @@ import os
 import glob
 
 
-def open_json_file(file_path):
-    """Opens a JSON file and loads it into a dictionary."""
-    with open(file_path, 'r', encoding='utf-8') as f:
-        data = json.load(f)
-    return data
-
-
-def convert_to_dataframe(data):
-    """Converts a dictionary to a pandas DataFrame."""
-    df = pd.DataFrame(data)
-    return df
+#Definicion de Variables
+config_file = "config_encrypted.json"
 
 
 def save_dataframe_to_csv(df, file_path):
@@ -29,39 +21,49 @@ def save_dataframe_to_csv(df, file_path):
         print(f'    Error al guardar el archivo: {file_path}')
 
 
-
-def process_health(df, system, instance, config, csvPath):
-    """Process the Health DataFrame."""
+def process_if_not_empty(file_path, process_function, system, instance, config, csvPath):
+    """Checks if the JSON data is empty; if not, converts it to a DataFrame and processes it."""
+    data = fn.load_json_file(file_path)
+    if not data:
+        print(f'El archivo "{file_path}" está vacío o no contiene datos válidos. Se omitirá.')
+        return
     
-    # Posibles categorías de salud
-    possible_health_category = ['CONFIGURATION', 'DATA_PROTECTION', 'PERFORMANCE', 'COMPONENTS', 'CAPACITY']
+    df = pd.DataFrame(data)
+    process_function(df, system, instance, config, csvPath)
 
-    # Crear un DataFrame base con todas las categorías de salud y valores iniciales
-    df_health_base = pd.DataFrame({
-        'healthCategory': possible_health_category,
+
+def create_health_summary(df):
+    """Crear un resumen de métricas de salud."""
+    health_categories = ['CONFIGURATION', 'DATA_PROTECTION', 'PERFORMANCE', 'COMPONENTS', 'CAPACITY']
+    
+    # Plantilla base con categorías de salud
+    df_health_template = pd.DataFrame({
+        'healthCategory': health_categories,
         'Score': 0,
         'Issues': 0
     })
 
-    # Agrupar por healthCategory y sumar los scoreDeduction y contar los issues
-    df_health_grouped = df.groupby('healthCategory').agg({
+    # Agrupar y calcular métricas
+    df_grouped_health_metrics = df.groupby('healthCategory').agg({
         'scoreDeduction': 'max',
         'healthCategory': 'count'
     }).rename(columns={'scoreDeduction': 'Score', 'healthCategory': 'Issues'})
-    # Convertir los valores de Score a negativos
-    df_health_grouped['Score'] = -df_health_grouped['Score']
+    df_grouped_health_metrics['Score'] = -df_grouped_health_metrics['Score']
 
-    # Unir los datos para completar el DataFrame de salud
-    df_health = pd.merge(df_health_base, df_health_grouped, on='healthCategory', how='outer', suffixes=('_base', '_grouped'))
-    # Rellenar los valores NaN con los valores correspondientes en 'Score' y 'Issues'
-    df_health['Score'] = df_health['Score_grouped'].fillna(df_health['Score_base']).astype(int)
-    df_health['Issues'] = df_health['Issues_grouped'].fillna(df_health['Issues_base']).astype(int)
-    df_health = df_health[['healthCategory', 'Issues', 'Score']]
+    # Completar resumen de salud
+    df_health_summary = pd.merge(
+        df_health_template,
+        df_grouped_health_metrics,
+        on='healthCategory',
+        how='outer',
+        suffixes=('_template', '_grouped')
+    )
+    df_health_summary['Score'] = df_health_summary['Score_grouped'].fillna(df_health_summary['Score_template']).astype(int)
+    df_health_summary['Issues'] = df_health_summary['Issues_grouped'].fillna(df_health_summary['Issues_template']).astype(int)
+    df_health_summary = df_health_summary[['healthCategory', 'Issues', 'Score']]
 
-    # Renombrar la columna 'healthCategory' a 'Health'
-    df_health = df_health.rename(columns={'healthCategory': 'CATEGORY'})
-
-    # Reemplazar los valores en la columna 'CATEGORY'
+    # Renombrar y reemplazar valores
+    df_health_summary = df_health_summary.rename(columns={'healthCategory': 'CATEGORY'})
     category_mapping = {
         'CONFIGURATION': 'Configuration',
         'DATA_PROTECTION': 'Data Protection',
@@ -69,75 +71,76 @@ def process_health(df, system, instance, config, csvPath):
         'COMPONENTS': 'Components',
         'CAPACITY': 'Capacity'
     }
-    df_health['CATEGORY'] = df_health['CATEGORY'].replace(category_mapping)
+    df_health_summary['CATEGORY'] = df_health_summary['CATEGORY'].replace(category_mapping)
+    
+    return df_health_summary
 
-    ########## OBTENER TABLA df_health_system ###################
-    # Calcular SystemScore: el menor valor en la columna 'Score'
-    system_score = df_health['Score'].min()
-    
-    # Convertir el menor valor negativo en la escala de 100 (100 + SystemScore)
-    system_score_converted = 100 + system_score
-    
-    # Calcular TotalNumIssues: suma total de los issues en la columna 'Issues'
-    total_num_issues = df_health['Issues'].sum()
-    
-    # Calcular STATUS basado en SystemScore convertido
-    if system_score_converted > 95:
-        status = "GOOD"
-    elif 71 < system_score_converted <= 94:
-        status = "FAIR"
+
+def create_health_system_status(df_health_summary):
+    """Crear el estado general del sistema."""
+    lowest_health_score = df_health_summary['Score'].min()
+    normalized_system_score = 100 + lowest_health_score
+    total_issues_count = df_health_summary['Issues'].sum()
+
+    # Determinar estado basado en el puntaje
+    if normalized_system_score > 95:
+        system_status = "GOOD"
+    elif 71 < normalized_system_score <= 94:
+        system_status = "FAIR"
     else:
-        status = "POOR"
+        system_status = "POOR"
 
-    # Crear un DataFrame con los resultados
-    df_status = pd.DataFrame([{
-        'STATUS': status,
-        'SystemScore': system_score_converted,
-        'TotalNumIssues': total_num_issues
+    # Crear DataFrame con el estado
+    df_system_status = pd.DataFrame([{
+        'TotalIssuesCount': total_issues_count,
+        'SystemScore': normalized_system_score,
+        'STATUS': system_status
     }])
 
-    #############################################################
+    return df_system_status
 
 
-    # Reemplazar los valores en el DataFrame original de eventos de salud
-    df_health_events = df.replace(r'\n', '|||', regex=True)
+def create_health_events(df):
+    """Limpiar y transformar registros de eventos de salud."""
+    return df.replace(r'\n', '|||', regex=True)
 
-    # Get file paths from config
+
+def process_health(df, system, instance, config, csvPath):
+    """Procesar datos de salud y guardar los resultados en CSV."""
+    # Crear los DataFrames requeridos
+    df_health_summary = create_health_summary(df)
+    df_system_status = create_health_system_status(df_health_summary)
+    df_event_logs = create_health_events(df)
+
+    # Guardar los DataFrames en archivos CSV
     csv_files = config['systems'][system]['files']['csv']
-
-    save_dataframe_to_csv(df_health, os.path.join(csvPath, f'{system}-{instance}-{csv_files["dashboardHealh"]}'))
-    save_dataframe_to_csv(df_health_events, os.path.join(csvPath, f'{system}-{instance}-{csv_files["healthEvents"]}'))
-    save_dataframe_to_csv(df_status, os.path.join(csvPath, f'{system}-{instance}-{csv_files["healthSystem"]}'))
-
-
-
-def process_job_group_activities(df, system, instance, config, csvPath):
-    """Process the Dashboard Job Group Activities DataFrame."""
+    
+    fn.save_dataframe_to_csv(df_health_summary, os.path.join(csvPath, f'{system}-{instance}-{csv_files["healthSummary"]}'))
+    fn.save_dataframe_to_csv(df_event_logs, os.path.join(csvPath, f'{system}-{instance}-{csv_files["healthEvents"]}'))
+    fn.save_dataframe_to_csv(df_system_status, os.path.join(csvPath, f'{system}-{instance}-{csv_files["healthSystemStatus"]}'))
 
 
-    # Filtrar el DataFrame por categorías específicas
-    categories = ['CLOUD_TIER', 'INDEX', 'PROTECT', 'REPLICATE', 'RESTORE']
-    df_filtered = df[df['category'].isin(categories)]
+def summarize_job_group_status(df_filtered):
+    """Crear un resumen de actividades por estado de resultado."""
+    possible_statuses = ['OK', 'FAILED', 'OK_WITH_ERRORS', 'CANCELED', 'SKIPPED', 'UNKNOWN']
+    df_all_statuses = pd.DataFrame({'result_status': possible_statuses, 'Count': 0})
 
-    # Create Job Groups DataFrame
-    df_job_groups_summary = df_filtered['result.status'].value_counts().reset_index()
-    df_job_groups_summary.columns = ['result.status', 'Num']
+    # Contar ocurrencias de cada estado de resultado
+    df_status_counts = df_filtered['result.status'].value_counts().reset_index()
+    df_status_counts.columns = ['result_status', 'Count']
 
-    # # Complete Job Groups DataFrame including all possible result.status
-    possible_result_status = ['OK', 'FAILED', 'OK_WITH_ERRORS', 'CANCELED', 'SKIPPED', 'UNKNOWN']
-    df_possible_result_status = pd.DataFrame({
-        'result.status': possible_result_status,
-        'Num': 0
-    })
+    # Completar con posibles estados faltantes
+    df_job_group_summary = pd.merge(
+        df_all_statuses,
+        df_status_counts,
+        on='result_status',
+        how='outer'
+    )
+    # Completar valores nulos con ceros
+    df_job_group_summary['Count'] = df_job_group_summary['Count_y'].combine_first(df_job_group_summary['Count_x']).astype(int)
+    df_job_group_summary = df_job_group_summary[['result_status', 'Count']]
 
-    # DataFrames, usando un merge outer para asegurarse de no perder datos
-    df_job_groups_summary = pd.merge(df_possible_result_status, df_job_groups_summary, on='result.status', how='outer')
-    # Llenar valores nulos en la columna Num
-    df_job_groups_summary['Num'] = df_job_groups_summary['Num_y'].combine_first(df_job_groups_summary['Num_x']).astype(int)
-    # Seleccionar solamente las columnas necesarias
-    df_job_groups_summary = df_job_groups_summary[['result.status', 'Num']]
-
-   # Reemplazar los valores de 'result.status' para adecuarlo al Dashboard de PPDM
+    # Mapear los estados de resultado a nombres amigables
     status_mapping = {
         'OK': 'Successful',
         'FAILED': 'Failed',
@@ -146,107 +149,48 @@ def process_job_group_activities(df, system, instance, config, csvPath):
         'SKIPPED': 'Skipped',
         'UNKNOWN': 'Unknown'
     }
+    df_job_group_summary['result_status'] = df_job_group_summary['result_status'].replace(status_mapping)
 
-    df_job_groups_summary['result.status'] = df_job_groups_summary['result.status'].replace(status_mapping)
+    # Renombrar columnas
+    df_job_group_summary = df_job_group_summary.rename(columns={'result_status': 'STATUS'})
 
-    # # Renombrar la columna 'result.status' a 'STATUS'
-    df_job_groups_summary = df_job_groups_summary.rename(columns={'result.status': 'STATUS'})
-
-
-    # Calcular TOTAL
-    TOTAL = df_job_groups_summary['Num'].sum()
-    
-    # Calcular RATE de 'Successful'
-    successful_count = df_job_groups_summary.loc[df_job_groups_summary['STATUS'] == 'Successful', 'Num'].sum()
-    RATE = round((successful_count / TOTAL) * 100, 2) if TOTAL > 0 else 0
-
-    print("TOTAL: ", TOTAL)
-    print("RATE: ", RATE)
-
-    df_job_groups_rate = pd.DataFrame([[TOTAL, RATE]], columns=['Total Job Groups', 'Rate (%)'])
+    return df_job_group_summary
 
 
-    # Get file paths from config
+def calculate_job_group_rate(df_job_group_summary):
+    """Calcular el total y el porcentaje de éxito de los grupos de trabajos."""
+    total_jobs = df_job_group_summary['Count'].sum()
+    successful_jobs = df_job_group_summary.loc[df_job_group_summary['STATUS'] == 'Successful', 'Count'].sum()
+    success_rate = round((successful_jobs / total_jobs) * 100, 2) if total_jobs > 0 else 0
+
+    df_job_group_rate = pd.DataFrame([[total_jobs, success_rate]], columns=['Total Job Groups', 'Rate (%)'])
+    return df_job_group_rate
+
+
+def process_job_group_activities(df, system, instance, config, csv_path):
+    """Procesar actividades del grupo de trabajos y guardar resultados en CSV."""
+    # Filtrar el DataFrame para categorías relevantes
+    relevant_categories = ['CLOUD_TIER', 'INDEX', 'PROTECT', 'REPLICATE', 'RESTORE']
+    df_filtered_jobs = df[df['category'].isin(relevant_categories)]
+
+    # Crear los DataFrames de resumen y tasa de éxito
+    df_job_group_summary = summarize_job_group_status(df_filtered_jobs)
+    df_job_group_rate = calculate_job_group_rate(df_job_group_summary)
+
+    # Obtener rutas de archivos desde la configuración
     csv_files = config['systems'][system]['files']['csv']
-    
-    save_dataframe_to_csv(df_job_groups_summary, os.path.join(csvPath, f'{system}-{instance}-{csv_files["dashboardjobgroupActivities"]}'))
-    save_dataframe_to_csv(df_job_groups_rate, os.path.join(csvPath, f'{system}-{instance}-{csv_files["dashboardJobGroupRate"]}'))
+
+    # Guardar los DataFrames en archivos CSV
+    fn.save_dataframe_to_csv(df_job_group_summary, os.path.join(csv_path, f'{system}-{instance}-{csv_files["jobgroupSummary"]}'))
+    fn.save_dataframe_to_csv(df_job_group_rate, os.path.join(csv_path, f'{system}-{instance}-{csv_files["jobgroupRate"]}'))
 
 
+def generate_activities_no_ok_summary(df):
+    # Filtrar entradas que no sean "skipped"
+    # filtered_df = df[df['result.status'] != 'SKIPPED'].fillna("(empty)")
 
-def process_activities_no_ok(df, system, instance, config, csvPath):
-
-#################TABLA RESUMEN JOBS SKIPPED  #########################
-    # Filtrar entradas con result.status igual a "SKIPPED"
-    skipped_df = df[df['result.status'] == 'SKIPPED'].copy()
-    
-    # Reemplazar valores NaN con un string vacío para evitar errores
-    skipped_df['host.name'] = skipped_df['host.name'].fillna('')
-    
-    # Realizar la agrupación en dos pasos para mayor claridad
-    # Primero, crear un DataFrame con los nombres de hosts concatenados
-    hosts_df = skipped_df.groupby([
-        'category', 
-        'protectionPolicy.name', 
-        'result.status', 
-        'result.error.code'
-    ])['host.name'].agg(
-        host_names=lambda x: ' / '.join(sorted(set(x))) if any(x) else ''
-    ).reset_index()
-    
-    # Luego, contar hosts y assets únicos
-    counts_df = skipped_df.groupby([
-        'category', 
-        'protectionPolicy.name', 
-        'result.status', 
-        'result.error.code'
-    ]).agg({
-        'host.name': lambda x: len(set(x.dropna())),
-        'asset.name': lambda x: len(set(x.dropna()))
-    }).reset_index()
-    
-    # Renombrar columnas de counts_df
-    counts_df.columns = [
-        'category', 
-        'protectionPolicy.name', 
-        'result.status', 
-        'result.error.code', 
-        'num.hosts', 
-        'num.assets'
-    ]
-    
-    # Combinar los DataFrames
-    final_df = hosts_df.merge(counts_df, on=[
-        'category', 
-        'protectionPolicy.name', 
-        'result.status', 
-        'result.error.code'
-    ])
-    
-    # Reordenar columnas para asegurar el orden correcto
-    final_columns = [
-        'category', 
-        'protectionPolicy.name', 
-        'result.status', 
-        'result.error.code', 
-        'host_names', 
-        'num.hosts', 
-        'num.assets'
-    ]
-    
-      
-    df_summary_jobs_skipped = final_df[final_columns]
-####################TABLA RESUMEN JOBS SKIPPED  ##################################
-
-
-#################TABLA CON ERRORES DE JOBS (NO SKIPPED)  #########################
-    # Filtrar entradas que no sean "SKIPPED"
-    filtered_df = df[df['result.status'] != 'SKIPPED']
-
-    filtered_df = filtered_df.fillna("(empty)")
-
-    # Calcular las ocurrencias
-    occurrence_df = filtered_df.groupby([
+        # Calcular el número de ocurrencias por combinación de columnas clave
+    df_error_occurrences = df.groupby([
         'category', 
         'protectionPolicy.name', 
         'result.status', 
@@ -254,10 +198,10 @@ def process_activities_no_ok(df, system, instance, config, csvPath):
         'host.name', 
         'asset.name',
         'result.error.reason'
-    ]).size().reset_index(name='occurrence')
+    ]).size().reset_index(name='occurrences')
 
-    # Crear un nuevo DataFrame con las columnas seleccionadas (excepto 'occurrence')
-    selected_columns = [
+    # Seleccionar columnas relevantes para el análisis
+    relevant_columns = [
         'category', 
         'protectionPolicy.name', 
         'result.status', 
@@ -270,10 +214,10 @@ def process_activities_no_ok(df, system, instance, config, csvPath):
         'result.error.detailedDescription', 
         'result.error.remediation'
     ]
-    processed_df = filtered_df[selected_columns]
+    df_relevant_data = df[relevant_columns]
 
-    # Unir el DataFrame procesado con las ocurrencias
-    final_df = processed_df.drop_duplicates(subset=[
+    # Crear un DataFrame con errores únicos basado en combinaciones clave
+    df_unique_errors = df_relevant_data.drop_duplicates(subset=[
         'category', 
         'protectionPolicy.name', 
         'result.status', 
@@ -283,24 +227,28 @@ def process_activities_no_ok(df, system, instance, config, csvPath):
         'result.error.reason'
     ])
 
-    final_df = final_df.merge(occurrence_df, on=[
-        'category', 
-        'protectionPolicy.name', 
-        'result.status', 
-        'result.error.code', 
-        'host.name', 
-        'asset.name',
-        'result.error.reason'
-    ])
+    # Unir las ocurrencias con el DataFrame de errores únicos
+    df_final_summary = df_unique_errors.merge(
+        df_error_occurrences, 
+        on=[
+            'category', 
+            'protectionPolicy.name', 
+            'result.status', 
+            'result.error.code', 
+            'host.name', 
+            'asset.name',
+            'result.error.reason'
+        ]
+    )
 
-    # Reordenar las columnas para que 'occurrence' esté en la posición deseada
-    final_columns = [
+    # Reorganizar y ordenar las columnas para el informe final
+    final_columns_order = [
         'category', 
         'protectionPolicy.name', 
         'result.status', 
-        'result.error.code', 
+        'result.error.code',
         'activityInitiatedType',
-        'occurrence',
+        'occurrences',
         'host.name', 
         'asset.name', 
         'result.error.reason', 
@@ -308,10 +256,7 @@ def process_activities_no_ok(df, system, instance, config, csvPath):
         'result.error.detailedDescription', 
         'result.error.remediation'
     ]
-    final_df = final_df[final_columns]
-
-    # Ordenar el DataFrame final
-    final_df_sorted = final_df.sort_values([
+    return df_final_summary[final_columns_order].sort_values([
         'category', 
         'protectionPolicy.name', 
         'result.status', 
@@ -321,25 +266,22 @@ def process_activities_no_ok(df, system, instance, config, csvPath):
         'result.error.reason'
     ])
 
-    df_unique_errors_no_skipped = final_df_sorted
 
-####################################################################
+def process_activities_no_ok(df, system, instance, config, csv_path):
 
-    # susstituir la cadena "\n" por "|||" en todo el contenido del DataFrame
-    #df_unique_errors_sorted = df_unique_errors_sorted.replace(r'\n', '  ..  ', regex=True)
-    df_unique_errors_no_skipped = df_unique_errors_no_skipped.replace(r'\n', '  ..  ', regex=True)
+    # Generar tabla de errores únicos 
+    df_activities_no_ok_summary = generate_activities_no_ok_summary(df)
 
-    # Get file paths from config
+    # Reemplazar "\n" por "|||" en todo el DataFrame
+    df_activities_no_ok_summary = df_activities_no_ok_summary.replace(r'\n', '  ..  ', regex=True)
+
+    # Obtener rutas de archivo desde la configuración
     csv_files = config['systems'][system]['files']['csv']
 
-    # Save DataFrames as CSV
-    # save_dataframe_to_csv(df_assets_with_errors, os.path.join(csvPath, f'{system}-{instance}-{csv_files["assetErrors"]}'))
-    # save_dataframe_to_csv(df_hosts_with_errors, os.path.join(csvPath, f'{system}-{instance}-{csv_files["hostErrors"]}'))
-    # save_dataframe_to_csv(df_unique_errors_sorted, os.path.join(csvPath, f'{system}-{instance}-{csv_files["jobErrors"]}'))
-    save_dataframe_to_csv(df_unique_errors_no_skipped, os.path.join(csvPath, f'{system}-{instance}-{csv_files["uniqueErrorsNoSkipped"]}'))
-    save_dataframe_to_csv(df_summary_jobs_skipped, os.path.join(csvPath, f'{system}-{instance}-{csv_files["summaryJobsSkipped"]}'))
-    #save_dataframe_to_csv(final_df, os.path.join(base_path, f'{system}-{instance}-{csv_files["summaryJobsSkipped"]}'))
-        
+    # Guardar los DataFrames en CSV
+    save_dataframe_to_csv(df_activities_no_ok_summary, os.path.join(csv_path, f'{system}-{instance}-{csv_files["activitiesNoOkSummary"]}'))
+    #save_dataframe_to_csv(df_summary_jobs_skipped, os.path.join(csv_path, f'{system}-{instance}-{csv_files["summaryJobsSkipped"]}'))
+
 
 def process_storage_systems(df, system, instance, config, csvPath):
     """Process storage systems information from JSON data."""
@@ -372,27 +314,14 @@ def process_storage_systems(df, system, instance, config, csvPath):
             })
     
     # Create DataFrame from processed rows
-    df_storage_systems_output = pd.DataFrame(processed_rows)
-    
+    df_storage_systems_output = pd.DataFrame(processed_rows)   
     df_storage_systems_output = df_storage_systems_output.sort_values(by=['NAME', 'TIER'])
-
 
     # Get file paths from config
     csv_files = config['systems'][system]['files']['csv']
     
     # Save to CSV
     save_dataframe_to_csv(df_storage_systems_output, os.path.join(csvPath, f'{system}-{instance}-{csv_files["storageSystems"]}'))
-
-
-def process_if_not_empty(file_path, process_function, system, instance, config, csvPath):
-    """Checks if the JSON data is empty; if not, converts it to a DataFrame and processes it."""
-    data = open_json_file(file_path)
-    if not data:
-        print(f'El archivo "{file_path}" está vacío o no contiene datos válidos. Se omitirá.')
-        return
-    
-    df = convert_to_dataframe(data)
-    process_function(df, system, instance, config, csvPath)
 
 
 def main():
@@ -409,21 +338,22 @@ def main():
     csvPath = os.path.join(base_path, csv_relative_path)
     
     for system, system_config in config["systems"].items():
-
-        # Verificar si el sistema es PPDM
         if system != "PPDM":
-            continue  # Saltar a la siguiente iteración si no es PPDM
+            continue  # Saltar este sistema si no es "PPDM"
 
-        print(f'PROCESANDO SISTEMAS "{system}"')
-        print('------------------------')
-        
+       
         json_files = system_config['files']['json']
         
         for instance_config in system_config['instances']:
             hostname = instance_config["hostname"]
+            print('------------------------')
+            print(f'PROCESANDO SISTEMAS "{system}"')
+            print('------------------------')
 
+            print('------------------------')
             print(f'Procesando información de : "{hostname}"')
-            
+            print('------------------------')
+
             # Process Health Issues
             health_files = glob.glob(os.path.join(jsonPath, f'{system}-{hostname}-{json_files["systemHealthIssues"]}')) 
             if not health_files:
