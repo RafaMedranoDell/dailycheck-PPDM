@@ -30,8 +30,8 @@
             "xio": null,
             "dataDomain": {
                 "version": "8.0.0.20-1107705",
-                "totalUsed": 30071586816.0,
-                "compressionFactor": 24.630647,
+                "totalUsed": 31770279936.0,
+                "compressionFactor": 23.714703,
                 "model": "DD VE",
                 "replicationEncryptionEnabled": false,
                 "serialNumber": "AUDVYNLCXPSDXE",
@@ -50,42 +50,33 @@
                 "retentionLockSupported": true,
                 "capacities": [
                     {
-                        "type": "ACTIVE",
-                        "totalPhysicalUsed": 30071586816.0,
+                        "type": "COMBINED",
+                        "totalPhysicalUsed": 31770279936.0,
                         "totalPhysicalSize": 112377987072.0,
-                        "compressionFactor": 24.630647,
-                        "totalLogicalUsed": 740682634606.0,
-                        "totalLogicalSize": 2767942511497.0,
-                        "percentUsed": 26.75932146456164,
-                        "reductionPercentage": 95.94001730147266,
+                        "compressionFactor": 23.714703,
+                        "totalLogicalUsed": 753422750699.0,
+                        "totalLogicalSize": 2665010579332.0,
+                        "percentUsed": 28.27091031239503,
+                        "reductionPercentage": 95.78320671807101,
                         "capacityStatus": "GOOD",
                         "totalLicensedSize": 1000000000000.0,
-                        "licensedUtilization": 3.0071586816
+                        "licensedUtilization": 3.1770279936
                     },
                     {
-                        "type": "COMBINED",
-                        "totalPhysicalUsed": 30071586816.0,
+                        "type": "ACTIVE",
+                        "totalPhysicalUsed": 31770279936.0,
                         "totalPhysicalSize": 112377987072.0,
-                        "compressionFactor": 24.630647,
-                        "totalLogicalUsed": 740682634606.0,
-                        "totalLogicalSize": 2767942511497.0,
-                        "percentUsed": 26.75932146456164,
-                        "reductionPercentage": 95.94001730147266,
+                        "compressionFactor": 23.714703,
+                        "totalLogicalUsed": 753422750699.0,
+                        "totalLogicalSize": 2665010579332.0,
+                        "percentUsed": 28.27091031239503,
+                        "reductionPercentage": 95.78320671807101,
                         "capacityStatus": "GOOD",
                         "totalLicensedSize": 1000000000000.0,
-                        "licensedUtilization": 3.0071586816
+                        "licensedUtilization": 3.1770279936
                     }
                 ],
                 "preferredInterfaces": [
-                    {
-                        "networkName": "fqdn",
-                        "networkAddress": "ddve-01.demo.local",
-                        "purposes": [
-                            "MANAGEMENT",
-                            "DATA"
-                        ],
-                        "scope": "PUBLIC"
-                    },
                     {
                         "networkName": "ethV0",
                         "networkAddress": "192.168.1.30",
@@ -94,9 +85,18 @@
                             "DATA"
                         ],
                         "scope": "PUBLIC"
+                    },
+                    {
+                        "networkName": "fqdn",
+                        "networkAddress": "ddve-01.demo.local",
+                        "purposes": [
+                            "MANAGEMENT",
+                            "DATA"
+                        ],
+                        "scope": "PUBLIC"
                     }
                 ],
-                "percentUsed": 26.75932146456164,
+                "percentUsed": 28.27091031239503,
                 "totalSize": 112377987072.0
             },
             "powerMax": null
@@ -159,8 +159,8 @@
                 ],
                 "preferredInterfaces": [
                     {
-                        "networkName": "fqdn",
-                        "networkAddress": "ddve-02.demo.local",
+                        "networkName": "ethV0",
+                        "networkAddress": "192.168.1.31",
                         "purposes": [
                             "MANAGEMENT",
                             "DATA"
@@ -168,8 +168,8 @@
                         "scope": "PUBLIC"
                     },
                     {
-                        "networkName": "ethV0",
-                        "networkAddress": "192.168.1.31",
+                        "networkName": "fqdn",
+                        "networkAddress": "ddve-02.demo.local",
                         "purposes": [
                             "MANAGEMENT",
                             "DATA"

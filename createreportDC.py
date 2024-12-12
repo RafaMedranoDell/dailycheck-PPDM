@@ -29,7 +29,7 @@ def color_score(val):
 
 # Definir la función para colorear la celda en la columna "Num" de la fila "FAILED" en la segunda tabla
 def color_failed(row):
-    if row['STATUS'] == 'Failed' and row['Num'] != 0:
+    if row['STATUS'] == 'Failed' and row['Count'] != 0:
         return ['background-color: #f7b3b3; color: #a10000'] * len(row)
     return [''] * len(row)
 
@@ -69,7 +69,7 @@ def color_rate(val):
     return ''
 
 
-# Definir la función de estilo para colorear las celdas de la columna "Health status"
+# Definir la función de estilo para colorear las celdas de la columna "status"
 def color_health_status(val):
     if val == "GOOD":
         return 'background-color: #b3e6b3; color: #2d6a2d'  # Verde pastel
@@ -142,29 +142,30 @@ def load_and_style_data(system, hostname, config):
     csvPath= os.path.join(base_path, csv_relative_path)
     csv_files = config['systems'][system]['files']['csv']
 
-    health_files = glob.glob(f"{csvPath}/{system}-{hostname}-{csv_files['dashboardHealh']}")
-    health_system_files = glob.glob(f"{csvPath}/{system}-{hostname}-{csv_files['healthSystem']}")
-    job_files = glob.glob(f"{csvPath}/{system}-{hostname}-{csv_files['dashboardjobgroupActivities']}")
-    rate_files = glob.glob(f"{csvPath}/{system}-{hostname}-{csv_files['dashboardJobGroupRate']}")
+    health_categories_files = glob.glob(f"{csvPath}/{system}-{hostname}-{csv_files['healthSummary']}")
+    health_system_status_files = glob.glob(f"{csvPath}/{system}-{hostname}-{csv_files['healthSystemStatus']}")
+    job_files = glob.glob(f"{csvPath}/{system}-{hostname}-{csv_files['jobgroupSummary']}")
+    rate_files = glob.glob(f"{csvPath}/{system}-{hostname}-{csv_files['jobgroupRate']}")
     storage_files = glob.glob(f"{csvPath}/{system}-{hostname}-{csv_files['storageSystems']}")
- 
-    html_health = ""
-    html_health_system = ""
+
+
+    html_health_categories = ""
+    html_health_system_status = ""
     html_job_group = ""
     html_job_rate = ""
     html_storage_systems = ""
     
     # Process Health files
-    for health_file in health_files:
-        df_health = pd.read_csv(health_file)
+    for health_categories_file in health_categories_files:
+        df_health = pd.read_csv(health_categories_file)
         styled_health = df_health.style.applymap(color_score, subset=['Score'])
-        html_health = styled_health.to_html(table_attributes='class="data-table"')
+        html_health_categories = styled_health.to_html(table_attributes='class="data-table"')
 
-    for health_system_file in health_system_files:
-        df_health_system = pd.read_csv(health_system_file)
+    for health_system_status_file in health_system_status_files:
+        df_health_system = pd.read_csv(health_system_status_file)
         styled_health_system = df_health_system.style.applymap(color_health_status, subset=['STATUS'])
-        html_health_system = styled_health_system.to_html(table_attributes='class="data-table"')
-    
+        html_health_system_status = styled_health_system.to_html(table_attributes='class="data-table"')
+
     # Process Job Group Activities files
     for job_file in job_files:
         df_job_group = pd.read_csv(job_file)
@@ -175,7 +176,7 @@ def load_and_style_data(system, hostname, config):
     for rate_file in rate_files:
         df_rate = pd.read_csv(rate_file)
 
-        # Asegurarse de que "Rate (%)" esté en formato numérico
+        # Asegurarse de que "Success Rate (%)" esté en formato numérico
         df_rate["Rate (%)"] = pd.to_numeric(df_rate["Rate (%)"], errors="coerce")
         styled_job_rate = (
             df_rate.style
@@ -184,7 +185,7 @@ def load_and_style_data(system, hostname, config):
             .format({"Rate (%)": "{:.2f}"})  # Limitar a 2 decimales
         )
         html_job_rate = styled_job_rate.to_html()
-
+    
     # Process Storage Systems files
     for storage_file in storage_files:
         df_storage = pd.read_csv(storage_file)
@@ -196,7 +197,7 @@ def load_and_style_data(system, hostname, config):
         )
         html_storage_systems = styled_storage_systems.to_html(table_attributes='class="data-table"')
   
-    return html_health, html_health_system, html_job_group, html_job_rate, html_storage_systems
+    return html_health_categories, html_health_system_status, html_job_group, html_job_rate, html_storage_systems
 
 # El resto del HTML con atributos adicionales para control de altura
 html_body = f"""
@@ -228,7 +229,7 @@ for system, system_config in config["systems"].items():
         hostname = instance_config["hostname"]
         
         # Load data
-        html_health, html_health_system, html_job_group, html_job_rate, html_storage_systems = load_and_style_data(system, hostname, config)
+        html_health_categories, html_health_system_status, html_job_group, html_job_rate, html_storage_systems = load_and_style_data(system, hostname, config)
         
         # Use table for layout with height attributes
         html_body += f"""
@@ -237,30 +238,30 @@ for system, system_config in config["systems"].items():
             <tr>
                 <td class="table-cell">
                     <p style="font-family: Arial, sans-serif; font-weight: bold; text-decoration: underline; color: #333; margin: 5px 0;">
-                        Job Group Rate
+                        JOB GROUPS RATE
                     </p>
-                    {html_job_rate}                    
+                    {html_job_rate}
                     <p style="font-family: Arial, sans-serif; color: #333; margin: 5px 0;">
                         Categories of Job Groups Included: "PROTECT", "REPLICATE", "RESTORE", "CLOUD_TIER", "INDEX"
-                    </p>           
-                    <hr style="border: 0; height: 1px; background: #fff; margin: 10px 0;">                                        
+                    </p>
+                    <hr style="border: 0; height: 1px; background: #fff; margin: 10px 0;">                    
                     <p style="font-family: Arial, sans-serif; font-weight: bold; text-decoration: underline; color: #333; margin: 5px 0;">
                         Jobs | Protection - Last 24 hours
                     </p>
-                    {html_job_group}
+                    {html_job_group}               
                 </td>
                 <td class="table-cell">
                     <p style="font-family: Arial, sans-serif; font-weight: bold; text-decoration: underline; color: #333; margin: 5px 0;">
-                        HEALTH SYSTEM
+                        HEALTY SYSTEM STATUS
                     </p>
-                    {html_health_system}
+                    {html_health_system_status}
                     <hr style="border: 0; height: 10px; background: #fff; margin: 10px 0;">
                     <p style="font-family: Arial, sans-serif; color: #333; margin: 5px 0;">
-                    </p>
+                    </p>  
                     <p style="font-family: Arial, sans-serif; font-weight: bold; text-decoration: underline; color: #333; margin: 5px 0;">
                         Health Categories
                     </p>
-                    {html_health}
+                    {html_health_categories}            
                 </td>
                 <td class="table-cell">
                     <p style="font-family: Arial, sans-serif; font-weight: bold; text-decoration: underline; color: #333; margin: 5px 0;">
@@ -288,7 +289,7 @@ webbrowser.open(f'file://{temp_file_path}')
 
 
 # Generar la fecha actual en formato YYYYMMDD
-# dateToday = datetime.now().strftime("%Y%m%d")
+dateToday = datetime.now().strftime("%Y%m%d")
 
 # Configurar los parámetros del correo
 customerName = config['customer']['name']
@@ -309,5 +310,5 @@ html_part = MIMEText(html_body, "html")
 message.attach(html_part)
 
 #Enviar el correo sin autenticación
-# with smtplib.SMTP(smtp_server, smtp_port) as server:
-   # server.sendmail(sender_email, receiver_email, message.as_string())
+with smtplib.SMTP(smtp_server, smtp_port) as server:
+   server.sendmail(sender_email, receiver_email, message.as_string())
