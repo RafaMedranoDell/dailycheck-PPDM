@@ -8,6 +8,8 @@ import smtplib
 from datetime import datetime
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from email.mime.application import MIMEApplication
+
 
 # Leer el archivo de configuración
 with open("config_encrypted.json") as config_file:
@@ -95,46 +97,6 @@ def load_and_style_health_events(system, hostname, config):
     return html_health_events
 
 
-# Función para cargar y aplicar estilo a los datos de Summary Jobs Skipped
-def load_and_style_summary_jobs_skipped(system, hostname, config):
-    base_path = config['basePath']
-    csv_relative_path = config['csvPath']
-    csvPath= os.path.join(base_path, csv_relative_path)
-    csv_files = config['systems'][system]['files']['csv']
-
-    summary_jobs_skipped_files = glob.glob(f"{csvPath}/{system}-{hostname}-{csv_files['summaryJobsSkipped']}")
-    
-    html_summary_jobs_skipped = ""
-    
-    for summary_jobs_skipped_file in summary_jobs_skipped_files:
-        df_summary_jobs_skipped = pd.read_csv(summary_jobs_skipped_file)
-        # html_summary_jobs_skipped += df_summary_jobs_skipped.to_html(classes='data-table')
-        styled_summary_jobs_skipped = (
-            df_summary_jobs_skipped.style
-            .set_table_attributes('class="data-table"')  # Aplicar las mismas clases CSS
-        )
-        html_summary_jobs_skipped = styled_summary_jobs_skipped.to_html()
-
-    return html_summary_jobs_skipped
-
-
-# Función para cargar y aplicar estilo a los datos de Unique Errors No Skipped
-def load_and_style_unique_errors_no_skipped(system, hostname, config):
-    base_path = config.get('basePath', '')
-    csv_relative_path = config['csvPath']
-    csvPath= os.path.join(base_path, csv_relative_path)
-    csv_files = config['systems'][system]['files']['csv']
-
-    unique_errors_no_skipped_files = glob.glob(f"{csvPath}/{system}-{hostname}-{csv_files['uniqueErrorsNoSkipped']}")
-
-    html_unique_errors_no_skipped = ""
-    
-    for unique_errors_no_skipped_file in unique_errors_no_skipped_files:
-        df_unique_errors_no_skipped = pd.read_csv(unique_errors_no_skipped_file)
-        html_unique_errors_no_skipped += df_unique_errors_no_skipped.to_html(classes='data-table')
- 
-    return html_unique_errors_no_skipped
-
 # HTML mejorado con soporte para Outlook
 html_body = f"""
 <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/2004/12/omml" xmlns="http://www.w3.org/TR/REC-html40">
@@ -166,8 +128,6 @@ for system, system_config in config["systems"].items():
         
         # Cargar datos
         html_health_events = load_and_style_health_events(system, hostname, config)
-        html_summary_jobs_skipped = load_and_style_summary_jobs_skipped(system, hostname, config)
-        html_unique_errors_no_skipped = load_and_style_unique_errors_no_skipped(system, hostname, config)
         
         html_body += f"""
         <div class="section-container">
@@ -178,20 +138,6 @@ for system, system_config in config["systems"].items():
                     Health Events
                 </p>
                 {html_health_events}
-            </div>
-
-            <div style="margin-bottom: 15px;">
-                <p style="font-family: Arial, sans-serif; font-weight: bold; text-decoration: underline; color: #333; margin: 5px 0;">
-                    Unsuccessful nor Skipped Jobs
-                </p>
-                {html_unique_errors_no_skipped}
-            </div>
-
-            <div style="margin-bottom: 15px;">
-                <p style="font-family: Arial, sans-serif; font-weight: bold; text-decoration: underline; color: #333; margin: 5px 0;">
-                    Summary Jobs Skipped
-                </p>
-                {html_summary_jobs_skipped}
             </div>
         </div>
         """
@@ -232,6 +178,33 @@ message["To"] = receiver_email
 # # Agregar el contenido HTML al mensaje
 html_part = MIMEText(html_body, "html")
 message.attach(html_part)
+
+# Ruta del directorio donde se encuentran los archivos .xlsx
+base_path = config['basePath']
+xlsx_directory = os.path.join(config["basePath"], config['xlsxPath'])
+#xlsx_pattern = config['xls_PPDM_pattern']
+xlsx_pattern = f'{datetime.now().strftime('%Y%m%d')}-PPDM-*-activities_no_ok_summary.xlsx'
+
+#output_file = os.path.join(xlsx_dir, f"{datetime.now().strftime('%Y%m%d')}-PPDM-{hostname}-activities_no_ok_summary.xlsx")
+
+
+
+# Buscar todos los archivos .xlsx que coincidan con el patrón
+xlsx_files = glob.glob(os.path.join(xlsx_directory, xlsx_pattern))
+print("xlsx_directory: ", xlsx_directory)
+print("xlsx_pattern: ", xlsx_pattern)
+print(xls_files)
+
+# Verificar si se encontraron archivos .xlsx
+if xlsx_files:
+    # Adjuntar los archivos .xlsx al mensaje
+    for file in xlsx_files:
+        with open(file, "rb") as f:
+            part = MIMEApplication(f.read(), Name=os.path.basename(file))
+            part['Content-Disposition'] = f'attachment; filename="{os.path.basename(file)}"'
+            message.attach(part)
+else:
+    print("No se encontraron archivos .xlsx para adjuntar.")
 
 # # Enviar el correo sin autenticación
 with smtplib.SMTP(smtp_server, smtp_port) as server:

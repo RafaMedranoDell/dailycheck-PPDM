@@ -1,8 +1,14 @@
-import getinfoPPDM
+import PPDMgetinfo
 import getInfoDD
-import processinfoPPDM
+import PPDMprocessinfo
+import PPDMgenerateXLSX
 
-getinfoPPDM.main()
-#getInfoDD.main()
-processinfoPPDM.main()
-#createreportDC.main()
+def main():
+    PPDMgetinfo.main()
+    #getInfoDD.main()
+    PPDMprocessinfo.main()
+    #createreportDC.main()
+    PPDMgenerateXLSX.main()
+
+if __name__ == "__main__":
+    main()

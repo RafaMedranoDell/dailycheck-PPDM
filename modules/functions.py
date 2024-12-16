@@ -11,6 +11,15 @@ def load_json_file(json_file):
         return json.load(file)
 
 
+# Guardar los datos en un archivo JSON
+def save_json(data, system, instance, query_name, base_path):
+    #print("rafa")
+    output_file = os.path.join(base_path, f"{system}-{instance}-{query_name}")
+    with open(output_file, "w") as file:
+        json.dump(data, file, indent=4)
+    print(instance, f": Data saved in: {output_file}")
+
+
 def save_dataframe_to_csv(df, file_path):
     """Saves the DataFrame to a CSV file."""
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
@@ -42,11 +51,5 @@ def filter_entries(entries, fields):
     return filtered_results
 
 
-# Guardar los datos en un archivo JSON
-def save_json(data, system, instance, query_name, base_path):
-    #print("rafa")
-    output_file = os.path.join(base_path, f"{system}-{instance}-{query_name}")
-    with open(output_file, "w") as file:
-        json.dump(data, file, indent=4)
-    print(instance, f": Data saved in: {output_file}")
+
 

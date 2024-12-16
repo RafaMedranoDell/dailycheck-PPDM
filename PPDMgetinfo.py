@@ -139,8 +139,8 @@ def get_activities_not_ok(instance, access_token, cert_file, today, twenty_four_
     filter_expression = (
         f'createTime ge "{twenty_four_hours_ago}" and createTime lt "{today}" '
         f'and result.status ne "OK" '
-        f'and protectionPolicy.name ne null '
-        f'and result.error.code ne null'
+        f'and protectionPolicy.name ne null '        
+        f'and (result.error.code ne null or host.name ne null or asset.name ne null)'   
     )
     params = {
         'filter': filter_expression

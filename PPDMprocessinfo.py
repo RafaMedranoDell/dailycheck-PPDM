@@ -186,8 +186,8 @@ def process_job_group_activities(df, system, instance, config, csv_path):
 
 
 def generate_activities_no_ok_summary(df):
-    # Filtrar entradas que no sean "skipped"
-    # filtered_df = df[df['result.status'] != 'SKIPPED'].fillna("(empty)")
+
+    df = df.fillna("(empty)")
 
         # Calcular el número de ocurrencias por combinación de columnas clave
     df_error_occurrences = df.groupby([
