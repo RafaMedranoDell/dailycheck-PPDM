@@ -265,8 +265,8 @@ def PPDM_create_daily_check_report(config_path):
     html_part = MIMEText(html_body, "html")
     message.attach(html_part)
 
-#    with smtplib.SMTP(smtp_server, smtp_port) as server:
-#        server.sendmail(sender_email, receiver_email, message.as_string())
+    with smtplib.SMTP(smtp_server, smtp_port) as server:
+        server.sendmail(sender_email, receiver_email, message.as_string())
 
 if __name__ == "__main__":
-    PPDM_create_daily_check_report("config_encrypted.json")
+    create_daily_check_report("config_encrypted.json")

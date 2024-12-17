@@ -21,12 +21,6 @@ def parse_arguments():
     return parser.parse_args()
 
 
-# Funcion para leer configuracion desde JSON
-def load_config(config_file):
-    with open(config_file, "r") as file:
-        return json.load(file)
-    
-
 # functions to filter by date
 def get_current_time():
     return datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
@@ -192,18 +186,15 @@ def get_storage_systems(instance,access_token, cert_file):
     return get_filtered_results(url, headers, params, fields, cert_file)
 
 
-def main():
-    args = parse_arguments()
-    hours_ago = args.hours
-
-
+def main(hours_ago=24):
     config = fn.load_json_file(config_file)
-    base_path = config["basePath"]  # get the basePath from the config file
+    base_path = config["basePath"]
     json_relative_path = config["jsonPath"]
     jsonPath = os.path.join(base_path, json_relative_path)
 
+
     for system, system_data in config["systems"].items():
-        json_files = system_data["files"]["json"]  # get the names of the JSON files
+        json_files = system_data["files"]["json"]
         for instance_info in system_data["instances"]:
             instance = instance_info["hostname"]
             username = instance_info["username"]
@@ -218,10 +209,10 @@ def main():
                 print("PROCESANDO", instance)
                 print("------------------------")
                 cert_relative_path = instance_info["certFile"]
-                cert_file = os.path.join(base_path, cert_relative_path)            
+                cert_file = os.path.join(base_path, cert_relative_path)
 
-                # get authentication token
-                access_token, _ = get_token_PPDM(instance, username, encrypted_password, cert_file)            
+                # Get authentication token
+                access_token, _ = get_token_PPDM(instance, username, encrypted_password, cert_file)
 
                 if not access_token:
                     print(f"Error: no se pudo obtener el token para {instance}.")
@@ -230,7 +221,7 @@ def main():
                 today = get_current_time()
                 time_ago = get_hours_ago(hours_ago)
 
-                print(instance, ": Fetching health issues...")                
+                print(instance, ": Fetching health issues...")
                 data = get_health_issues(instance, access_token, cert_file)
                 fn.save_json(data, system, instance, json_files["systemHealthIssues"], jsonPath)
 
@@ -246,6 +237,7 @@ def main():
                 data = get_storage_systems(instance, access_token, cert_file)
                 fn.save_json(data, system, instance, json_files["storageSystems"], jsonPath)
 
-    
 if __name__ == "__main__":
-    main()
+    args = parse_arguments()
+    main(hours_ago=args.hours)
+
