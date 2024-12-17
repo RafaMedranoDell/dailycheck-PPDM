@@ -182,12 +182,7 @@ message.attach(html_part)
 # Ruta del directorio donde se encuentran los archivos .xlsx
 base_path = config['basePath']
 xlsx_directory = os.path.join(config["basePath"], config['xlsxPath'])
-#xlsx_directory = config['xlsxPath']
-#xlsx_pattern = config['xls_PPDM_pattern']
 xlsx_pattern = f'{datetime.now().strftime('%Y%m%d')}-PPDM-*-activities_no_ok_summary.xlsx'
-
-#output_file = os.path.join(xlsx_dir, f"{datetime.now().strftime('%Y%m%d')}-PPDM-{hostname}-activities_no_ok_summary.xlsx")
-
 
 
 # Buscar todos los archivos .xlsx que coincidan con el patrón
