@@ -8,7 +8,7 @@ import modules.functions as fn
 import argparse
 
 #Definicion de Variables
-config_file = "config_encrypted.json"
+#config_file = "config_encrypted.json"
 
 
 # deshabilitar la advertencia de InsecureRequestWarning
@@ -186,8 +186,8 @@ def get_storage_systems(instance,access_token, cert_file):
     return get_filtered_results(url, headers, params, fields, cert_file)
 
 
-def main(hours_ago=24, configFile="config_encrypted.json"):
-    config = fn.load_json_file(configFile)
+def main(hours_ago=24, config_file="config_encrypted.json"):
+    config = fn.load_json_file(config_file)
     base_path = config["basePath"]
     json_relative_path = config["jsonPath"]
     jsonPath = os.path.join(base_path, json_relative_path)
@@ -239,5 +239,5 @@ def main(hours_ago=24, configFile="config_encrypted.json"):
 
 if __name__ == "__main__":
     args = parse_arguments()
-    main(hours_ago=args.hours, config_file=configFile)
+    main(hours_ago=args.hours)
 

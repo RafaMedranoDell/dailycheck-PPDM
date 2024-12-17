@@ -29,8 +29,8 @@
             "xio": null,
             "dataDomain": {
                 "version": "8.0.0.20-1107705",
-                "totalUsed": 30538727424.0,
-                "compressionFactor": 24.903813,
+                "totalUsed": 30618943488.0,
+                "compressionFactor": 24.845328,
                 "model": "DD VE",
                 "replicationEncryptionEnabled": false,
                 "serialNumber": "AUDVYNLCXPSDXE",
@@ -49,42 +49,33 @@
                 "retentionLockSupported": true,
                 "capacities": [
                     {
-                        "type": "COMBINED",
-                        "totalPhysicalUsed": 30538727424.0,
+                        "type": "ACTIVE",
+                        "totalPhysicalUsed": 30618943488.0,
                         "totalPhysicalSize": 112377987072.0,
-                        "compressionFactor": 24.903813,
-                        "totalLogicalUsed": 760530750688.0,
-                        "totalLogicalSize": 2798640352037.0,
-                        "percentUsed": 27.17500839771582,
-                        "reductionPercentage": 95.98455060543263,
+                        "compressionFactor": 24.845328,
+                        "totalLogicalUsed": 760737702278.0,
+                        "totalLogicalSize": 2792067979265.0,
+                        "percentUsed": 27.24638898219684,
+                        "reductionPercentage": 95.97509846083443,
                         "capacityStatus": "GOOD",
                         "totalLicensedSize": 1000000000000.0,
-                        "licensedUtilization": 3.0538727424
+                        "licensedUtilization": 3.0618943488
                     },
                     {
-                        "type": "ACTIVE",
-                        "totalPhysicalUsed": 30538727424.0,
+                        "type": "COMBINED",
+                        "totalPhysicalUsed": 30618943488.0,
                         "totalPhysicalSize": 112377987072.0,
-                        "compressionFactor": 24.903813,
-                        "totalLogicalUsed": 760530750688.0,
-                        "totalLogicalSize": 2798640352037.0,
-                        "percentUsed": 27.17500839771582,
-                        "reductionPercentage": 95.98455060543263,
+                        "compressionFactor": 24.845328,
+                        "totalLogicalUsed": 760737702278.0,
+                        "totalLogicalSize": 2792067979265.0,
+                        "percentUsed": 27.24638898219684,
+                        "reductionPercentage": 95.97509846083443,
                         "capacityStatus": "GOOD",
                         "totalLicensedSize": 1000000000000.0,
-                        "licensedUtilization": 3.0538727424
+                        "licensedUtilization": 3.0618943488
                     }
                 ],
                 "preferredInterfaces": [
-                    {
-                        "networkName": "ethV0",
-                        "networkAddress": "192.168.1.30",
-                        "purposes": [
-                            "MANAGEMENT",
-                            "DATA"
-                        ],
-                        "scope": "PUBLIC"
-                    },
                     {
                         "networkName": "fqdn",
                         "networkAddress": "ddve-01.demo.local",
@@ -93,9 +84,18 @@
                             "DATA"
                         ],
                         "scope": "PUBLIC"
+                    },
+                    {
+                        "networkName": "ethV0",
+                        "networkAddress": "192.168.1.30",
+                        "purposes": [
+                            "MANAGEMENT",
+                            "DATA"
+                        ],
+                        "scope": "PUBLIC"
                     }
                 ],
-                "percentUsed": 27.17500839771582,
+                "percentUsed": 27.24638898219684,
                 "totalSize": 112377987072.0
             },
             "nasAppliance": null,
@@ -130,7 +130,7 @@
                 "retentionLockSupported": true,
                 "capacities": [
                     {
-                        "type": "COMBINED",
+                        "type": "ACTIVE",
                         "totalPhysicalUsed": 1193803776.0,
                         "totalPhysicalSize": 127302893568.0,
                         "compressionFactor": 9.208079,
@@ -143,7 +143,7 @@
                         "licensedUtilization": 0.11938037759999999
                     },
                     {
-                        "type": "ACTIVE",
+                        "type": "COMBINED",
                         "totalPhysicalUsed": 1193803776.0,
                         "totalPhysicalSize": 127302893568.0,
                         "compressionFactor": 9.208079,
